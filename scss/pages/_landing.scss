@@ -1,0 +1,55 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the landing page.
+// -----------------------------------------------------------------------------
+.main {
+  > .container-fluid {
+    padding: 0px;
+  }
+
+  .siderbar {
+    padding: 0px;
+
+    .siderbar-container {
+      background: url("../img/Building-background.svg") no-repeat center bottom;
+      background-size: cover;
+      height: 450px;
+
+      .hamburger-menu {
+        background-color: $primary-color;
+        height: 60px;
+        width: 60px;
+        border: none;
+        padding: 10px;
+        overflow: hidden;
+        display: block;
+        // outline: none;
+        transition: background-color 0.3s ease;
+
+        @include on-event {
+          background-color: shade($primary-color, 30%);
+        }
+
+        .line {
+          background-color: $white;
+          height: 4px;
+          width: 100%;
+          margin: 8px 0px;
+
+          &:first-child {
+            width: 50%;
+            margin-top: 0px;
+          }
+
+          &:nth-child(2) {
+            width: 75%;
+          }
+
+          &:nth-child(3) {
+            width: 100%;
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+}
