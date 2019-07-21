@@ -57,8 +57,10 @@ a:hover, a:active, a:focus {
 }
 
 .main .siderbar .siderbar-container {
-  background: url("../img/Building-background.svg") no-repeat center bottom;
+  background-image: url("../img/Building-background.svg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
   height: 450px;
 }
 
