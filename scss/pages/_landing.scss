@@ -11,9 +11,9 @@
 
     .siderbar-container {
       background-image: url("../img/Building-background.svg");
-           background-size: cover;
-           background-repeat: no-repeat;
-           background-position: 0% 0%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 0% 0%;
       height: 450px;
 
       .hamburger-menu {
@@ -51,6 +51,19 @@
             margin-bottom: 0px;
           }
         }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  // -----------------------------------------------------------------------------
+  // This file contains styles that are specific to the landing page.
+  // -----------------------------------------------------------------------------
+  .main {
+    .siderbar {
+      .siderbar-container {
+        min-height: 100vh;
       }
     }
   }

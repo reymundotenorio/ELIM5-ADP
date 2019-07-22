@@ -1,7 +1,29 @@
-var tl = new TimelineMax({ repeat: -1 }); /* repeat loop forever */
+$( document ).ready(function() {
+  var tweenMax = new TimelineMax();
 
-tl.to("#buildings", 10, {
-//   backgroundPosition: "-2247px 0px" /* negative width of background image your animating - left top */,
-  backgroundPosition: "100% 0%" /* negative width of background image your animating - left top */,
-  ease: Linear.easeNone /* make sure you use Linear.easeNone so its smooth */
+  function moveBuildingsBackground() {
+    tweenMax.to("#buildings", 4, {
+      backgroundPosition: "75% 0%",
+      ease: Linear.easeNone
+    });
+  
+    tweenMax.to("#buildings", 2, {
+      backgroundPosition: "25% 0%",
+      ease: Linear.easeNone
+    });
+  
+    tweenMax.to("#buildings", 1, {
+      backgroundPosition: "100% 0%",
+      ease: Linear.easeNone
+    });
+  
+    tweenMax.to("#buildings", 5, {
+      backgroundPosition: "0% 0%",
+      ease: Linear.easeNone
+    });
+  
+    moveBuildingsBackground();
+  }
+  
+  moveBuildingsBackground();
 });
