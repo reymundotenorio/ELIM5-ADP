@@ -4,7 +4,7 @@
 .main {
   .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
   }
@@ -75,15 +75,42 @@
     }
   }
 
-  .future-of-hr-tech{
+  .future-of-hr-tech {
+    background-image: url("../img/Grey-background-pattern.svg");
+    background-color: $third-color;
+    background-size: contain;
+    background-repeat: repeat;
+    height: 100vh;
+    width: 100%;
 
+    h2 {
+      text-align: center;
+      font-family: $secondary-font;
+      font-size: 50pt;
+      line-height: 60pt;
+      font-weight: 600;
+    }
   }
 }
 
 @media (min-width: 992px) {
-  // -----------------------------------------------------------------------------
-  // This file contains styles that are specific to the landing page.
-  // -----------------------------------------------------------------------------
+  .main {
+    .container {
+      flex-direction: row;
+    }
+
+    .siderbar {
+      width: 180pt;
+    }
+
+    .future-of-hr-tech {
+      flex: 1;
+      width: auto;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
   .main {
     .siderbar {
       width: 217pt;

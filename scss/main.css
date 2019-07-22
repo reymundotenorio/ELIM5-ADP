@@ -1,8 +1,16 @@
 @font-face {
-  font-family: 'Taub-Sans';
+  font-family: "Taub-Sans";
   src: url("../fonts/TaubSans-Light/TaubSans-Light.eot");
   src: url("../fonts/TaubSans-Light/TaubSans-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/TaubSans-Light/TaubSans-Light.woff2") format("woff2"), url("../fonts/TaubSans-Light/TaubSans-Light.woff") format("woff"), url("../fonts/TaubSans-Light/TaubSans-Light.otf"), url("../fonts/TaubSans-Light/TaubSans-Light.ttf") format("truetype");
   font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Taub-Display-C";
+  src: url("../fonts/Taub-Display-C/TaubDisplay-C.eot");
+  src: url("../fonts/Taub-Display-C/TaubDisplay-C.ttf") format("truetype"), url("../fonts/Taub-Display-C/TaubDisplay-C.eot?#iefix") format("embedded-opentype"), url("../fonts/Taub-Display-C/TaubDisplay-C.woff2") format("woff2"), url("../fonts/Taub-Display-C/TaubDisplay-C.woff") format("woff"), url("../fonts/TaubDisplayC/TaubDisplay-C.otf");
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -510,10 +518,10 @@ a:hover, a:active, a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -588,7 +596,42 @@ a:hover, a:active, a:focus {
   padding: 0pt 30pt;
 }
 
+.main .future-of-hr-tech {
+  background-image: url("../img/Grey-background-pattern.svg");
+  background-color: #f2f2f2;
+  background-size: contain;
+  background-repeat: repeat;
+  height: 100vh;
+  width: 100%;
+}
+
+.main .future-of-hr-tech h2 {
+  text-align: center;
+  font-family: "Taub-Display-C", Times, "Montserrat", sans-serif;
+  font-size: 50pt;
+  line-height: 60pt;
+  font-weight: 600;
+}
+
 @media (min-width: 992px) {
+  .main .container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .main .siderbar {
+    width: 180pt;
+  }
+  .main .future-of-hr-tech {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
   .main .siderbar {
     width: 217pt;
   }

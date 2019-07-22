@@ -26,16 +26,25 @@
 //   font-style: normal;
 // }
 
-
 @font-face {
-  font-family: 'Taub-Sans';
+  font-family: "Taub-Sans";
   src: url("../fonts/TaubSans-Light/TaubSans-Light.eot");
   src: url("../fonts/TaubSans-Light/TaubSans-Light.eot?#iefix") format("embedded-opentype"),
-  url("../fonts/TaubSans-Light/TaubSans-Light.woff2") format("woff2"),
-  url("../fonts/TaubSans-Light/TaubSans-Light.woff") format("woff"),
-  url("../fonts/TaubSans-Light/TaubSans-Light.otf"),
-  url("../fonts/TaubSans-Light/TaubSans-Light.ttf") format("truetype");
+    url("../fonts/TaubSans-Light/TaubSans-Light.woff2") format("woff2"),
+    url("../fonts/TaubSans-Light/TaubSans-Light.woff") format("woff"), url("../fonts/TaubSans-Light/TaubSans-Light.otf"),
+    url("../fonts/TaubSans-Light/TaubSans-Light.ttf") format("truetype");
   font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Taub-Display-C";
+  src: url("../fonts/Taub-Display-C/TaubDisplay-C.eot");
+  src: url("../fonts/Taub-Display-C/TaubDisplay-C.ttf") format("truetype"),
+    url("../fonts/Taub-Display-C/TaubDisplay-C.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Taub-Display-C/TaubDisplay-C.woff2") format("woff2"),
+    url("../fonts/Taub-Display-C/TaubDisplay-C.woff") format("woff"), url("../fonts/TaubDisplayC/TaubDisplay-C.otf");
+  font-weight: 600;
   font-style: normal;
 }
 
