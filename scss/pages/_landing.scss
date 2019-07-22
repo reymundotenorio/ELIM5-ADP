@@ -90,6 +90,14 @@
       line-height: 60pt;
       font-weight: 600;
     }
+
+    .animation-container {
+      .circle-container {
+        padding: 15pt;
+
+
+      }
+    }
   }
 }
 
@@ -106,6 +114,13 @@
     .future-of-hr-tech {
       flex: 1;
       width: auto;
+
+      .animation-container {
+        .circle-container {
+          width: 40%;
+          margin: 0 auto;
+        }
+      }
     }
   }
 }
@@ -115,5 +130,14 @@
     .siderbar {
       width: 217pt;
     }
+  }
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }

@@ -613,6 +613,10 @@ a:hover, a:active, a:focus {
   font-weight: 600;
 }
 
+.main .future-of-hr-tech .animation-container .circle-container {
+  padding: 15pt;
+}
+
 @media (min-width: 992px) {
   .main .container {
     -webkit-box-orient: horizontal;
@@ -629,11 +633,33 @@ a:hover, a:active, a:focus {
             flex: 1;
     width: auto;
   }
+  .main .future-of-hr-tech .animation-container .circle-container {
+    width: 40%;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 1200px) {
   .main .siderbar {
     width: 217pt;
+  }
+}
+
+@-webkit-keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }
 /*# sourceMappingURL=main.css.map */
