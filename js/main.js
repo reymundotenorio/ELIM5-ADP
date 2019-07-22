@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var tweenMaxRepeat = new TimelineMax({ repeat: -1 });
 
-  // Move buildings functions
+  // Move buildings background
   function moveBuildingsBackground() {
     tweenMaxRepeat
       .to("#buildings", 1, {
@@ -92,15 +92,23 @@ $(document).ready(function() {
 
   function animateTitle() {
     $("#future_title").textillate({
-      in: { effect: "fadeInUp" },
+      type: "char",
+      in: {
+        effect: "fadeInUp",
+        delayScale: 1.5,
+        delay: 40,
+        callback: function() {
+          console.log("Finished loading title");
+        }
+      },
       out: {
         effect: "none"
       }
     });
   }
 
-  // Run move buildings functions
+  // Run move buildings background
   moveBuildingsBackground();
-
+  // Run animate title
   animateTitle();
 });
