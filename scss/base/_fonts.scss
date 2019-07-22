@@ -12,9 +12,6 @@
 /// 800 - Extra Bold, Ultra Bold
 /// 900 - Black, Heavy
 
-/// Font Awesome 4.7.0
-// @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-
 /// Custom Font
 
 // @font-face {
@@ -28,5 +25,18 @@
 //   font-weight: normal;
 //   font-style: normal;
 // }
+
+
+@font-face {
+  font-family: 'Taub-Sans';
+  src: url("../fonts/TaubSans-Light/TaubSans-Light.eot");
+  src: url("../fonts/TaubSans-Light/TaubSans-Light.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/TaubSans-Light/TaubSans-Light.woff2") format("woff2"),
+  url("../fonts/TaubSans-Light/TaubSans-Light.woff") format("woff"),
+  url("../fonts/TaubSans-Light/TaubSans-Light.otf"),
+  url("../fonts/TaubSans-Light/TaubSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
 
 /// End Custom Font

@@ -3,20 +3,17 @@
 // -----------------------------------------------------------------------------
 
 /// Fonts
-$primary-font: 'Open Sans', sans-serif;
+$primary-font: 'Taub-Sans', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
 
 /// Copy text
 /// @type Color
-$text-color: #222222 !default;
-
-/// Default colors
-$white: #fff;
-$black: #000;
+$text-color: #000000 !default;
+$white: #ffffff;
 
 // Company color pallete
 $primary-color: #0b3480; // Blue
-$secondary-color: #2d88c1;
+$secondary-color: #121c4e; // Dark blue
 $third-color: #ffcc00;
 
 $body-color: $white;
