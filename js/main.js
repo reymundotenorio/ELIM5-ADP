@@ -90,6 +90,17 @@ $(document).ready(function() {
       });
   }
 
+  function animateTitle() {
+    $("#future_title").textillate({
+      in: { effect: "fadeInUp" },
+      out: {
+        effect: "none"
+      }
+    });
+  }
+
   // Run move buildings functions
   moveBuildingsBackground();
+
+  animateTitle();
 });
