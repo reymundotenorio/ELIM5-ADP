@@ -1,6 +1,18 @@
 $(document).ready(function() {
   var tweenMaxRepeat = new TimelineMax({ repeat: -1 });
 
+  // Animate SVG
+  function animateSVG(target, percent) {
+    var path = $(target).get(0);
+    var pathLen = path.getTotalLength();
+    var adjustedLen = (percent * pathLen) / 100;
+    path.setAttribute("stroke-dasharray", adjustedLen + " " + pathLen);
+  }
+
+  function initCircle() {
+    animateSVG("#circle", 0);
+  }
+
   // Move buildings background
   function moveBuildingsBackground() {
     tweenMaxRepeat
@@ -107,26 +119,25 @@ $(document).ready(function() {
     });
   }
 
-  function animateCircle() {}
+  // Animate circle
+  function animateCircle() {
+    // Get circle element
+    var circleSVG = $("#circle");
+    // Adding stroke color
+    circleSVG.css({ stroke: "#000000" });
+    // Adding class to enable transition
+    circleSVG.attr("class", "with-transition");
 
-
-  function setCircleTo(percent) {
-    // percent
-    var path = $("#circle").get(0);
-    var pathLen = path.getTotalLength();
-    var adjustedLen = (percent * pathLen) / 100;
-    path.setAttribute("stroke-dasharray", adjustedLen + " " + pathLen);
+    animateSVG("#circle", 100);
   }
 
-  // setCircleTo(10);
+  // Run init cicle
+  initCircle();
 
   // Run move buildings background
   moveBuildingsBackground();
   // Run animate title
   animateTitle();
-
-$("#ninon").lettering();
-
-  //
+  // Run animate circle
   animateCircle();
 });
