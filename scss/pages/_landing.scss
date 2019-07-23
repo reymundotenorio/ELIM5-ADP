@@ -94,6 +94,7 @@
     .animation-container {
       .circle-container {
         padding: 15pt;
+        position: relative;
 
         .svg-overflow {
           overflow: visible;
@@ -102,12 +103,33 @@
             stroke: transparent;
             stroke-width: 2pt;
             fill: none;
-           
-            &.with-transition{
+
+            &.with-transition {
               transition: stroke-dasharray 3s ease-in-out;
             }
           }
         }
+
+       .invisible-circle{ 
+         position: absolute;
+         left: 15pt;
+         right: 15pt;
+         top: 15pt;
+         bottom: 15pt;
+         background-color: rgba(#000, 0.3);
+         border-radius: 100%;
+        //  left: 17pt;
+        //  right: 16pt;
+        //  top: 17pt;
+        //  bottom: 19pt;
+
+        .point {
+          width: 15pt;
+          height: 15pt;
+          background-color: $primary-color;
+          border-radius: 100%;
+        }
+      }
       }
     }
   }

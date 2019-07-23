@@ -615,6 +615,7 @@ a:hover, a:active, a:focus {
 
 .main .future-of-hr-tech .animation-container .circle-container {
   padding: 15pt;
+  position: relative;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .svg-overflow {
@@ -630,6 +631,23 @@ a:hover, a:active, a:focus {
 .main .future-of-hr-tech .animation-container .circle-container .svg-overflow #circle.with-transition {
   -webkit-transition: stroke-dasharray 3s ease-in-out;
   transition: stroke-dasharray 3s ease-in-out;
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle {
+  position: absolute;
+  left: 15pt;
+  right: 15pt;
+  top: 15pt;
+  bottom: 15pt;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 100%;
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point {
+  width: 15pt;
+  height: 15pt;
+  background-color: #0b3480;
+  border-radius: 100%;
 }
 
 @media (min-width: 992px) {
