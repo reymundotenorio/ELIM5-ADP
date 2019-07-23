@@ -107,14 +107,25 @@ $(document).ready(function() {
     });
   }
 
-  function animateCircle() {
+  function animateCircle() {}
 
+
+  function setCircleTo(percent) {
+    // percent
+    var path = $("#circle").get(0);
+    var pathLen = path.getTotalLength();
+    var adjustedLen = (percent * pathLen) / 100;
+    path.setAttribute("stroke-dasharray", adjustedLen + " " + pathLen);
   }
+
+  // setCircleTo(10);
 
   // Run move buildings background
   moveBuildingsBackground();
   // Run animate title
   animateTitle();
+
+$("#ninon").lettering();
 
   //
   animateCircle();

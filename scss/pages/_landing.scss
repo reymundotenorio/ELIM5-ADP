@@ -94,19 +94,19 @@
     .animation-container {
       .circle-container {
         padding: 15pt;
+
+        .svg-overflow {
+          overflow: visible;
+
+          #circle {
+            stroke: #000000;
+            stroke-width: 2pt;
+            fill: none;
+          }
+        }
       }
     }
   }
-}
-
-#demo {
-  // position: absolute;
-  // left: 50%;
-  // top: 50%;
-  // width: 80%;
-  // height: 80%;
-  // max-height: 80%;
-  // max-width: 80%;
 }
 
 @media (min-width: 992px) {
@@ -147,5 +147,58 @@
   }
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+$delay: 0.05s;
+
+@for $i from 1 through 13 {
+  h1 {
+    span {
+      "&.char#{$i}" {
+        display: inline-block;
+
+        -webkit-animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+        animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+        animation-delay: #{$delay};
+        $delay: $delay + 0.05s;
+      }
+    }
+  }
+}
+
+@keyframes ninon {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
