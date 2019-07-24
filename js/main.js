@@ -119,31 +119,7 @@ $(document).ready(function() {
     });
   }
 
-  // Animate circle
-  function animateCircle() {
-    // Get circle element
-    var circleSVG = $("#circle");
-    // Adding stroke color
-    circleSVG.css({ stroke: "#000000" });
-    // Adding class to enable transition
-    circleSVG.attr("class", "with-transition");
-
-    animateSVG("#circle", 100);
-  }
-
-  function sleep(milliseconds) {
-    var start = new Date().getTime();
-
-    for (var i = 0; i < 1e7; i++) {
-      if (new Date().getTime() - start > milliseconds) {
-        break;
-      }
-    }
-  }
-
   function animatePoints() {
-    // var tweenMax = new TimelineMax();
-
     // Get point child element
     var time = 0.1;
 
@@ -155,27 +131,24 @@ $(document).ready(function() {
       point.addClass("with-animation");
       point.css({ "animation-delay": `${time}s` });
       time += 0.1;
-
-      // point.addClass("with-transition");
-      // sleep(100);
-
-      // window.setTimeout(animateInternalPoint(i), 30000); // 1.5 seconds
-      // tweenMax
-      //   .to(point, 0.5, {
-      //     opacity: 1,
-      //     ease: Power1.easeIn
-      //   })
-      //   .to(
-      //     point,
-      //     0.3,
-      //     {
-      //       width: "6pt",
-      //       height: "6pt",
-      //       ease: Power1.easeIn
-      //     },
-      //     "-=0.4"
-      //   );
     }
+  }
+
+  // Animate circle
+  function animateCircle() {
+    // Get circle element
+    var circleSVG = $("#circle");
+    // Adding stroke color
+    circleSVG.css({ stroke: "#000000" });
+    // Adding class to enable transition
+    circleSVG.attr("class", "with-transition");
+
+    animateSVG("#circle", 100);
+
+    // Run animate points
+    setTimeout(function() {
+      animatePoints();
+    }, 300);
   }
 
   // Run init cicle
@@ -187,6 +160,4 @@ $(document).ready(function() {
   animateTitle();
   // Run animate circle
   animateCircle();
-
-  // animatePoints();
 });

@@ -109,9 +109,6 @@
         }
 
         .invisible-circle {
-          // width: 490px;
-          // height: 490px;
-
           width: 390pt; // 380pt + 10pt
           height: 390pt; // 380pt + 10pt
 
@@ -122,7 +119,6 @@
           bottom: auto;
           left: 0pt;
           right: 0pt;
-          // background-color: rgba(#000, 0.3);
           border-radius: 100%;
 
           .point-container {
@@ -137,7 +133,7 @@
 
             @for $i from 1 through 40 {
               &:nth-child(#{$i}) {
-                transform: rotate($deg) translate(196pt);
+                transform: rotate($deg) translate(200pt);
               }
 
               // Adding new value to deg
@@ -157,7 +153,7 @@
               // transition: opacity 6s ease-in, transform 3s ease-in;
 
               &.with-animation {
-                animation: fadePoint 3s ease-in-out forwards, scalePoint 1s ease-in-out forwards;
+                animation: fadePoint 4s ease-in-out forwards, scalePoint 3s ease-in-out forwards;
                 animation-delay: 1s;
               }
             }
@@ -209,6 +205,28 @@
       .animation-container {
         .circle-container {
           width: 520pt;
+
+          .invisible-circle {
+            width: 546pt;
+            height: 546pt;
+  
+            top: calc(50% - 274pt); 
+            
+  
+            .point-container {               
+              // Moving points
+              $deg: 90deg;
+  
+              @for $i from 1 through 40 {
+                &:nth-child(#{$i}) {
+                  transform: rotate($deg) translate(274pt);
+                }
+  
+                // Adding new value to deg
+                $deg: ($deg + (6.92));
+              }
+            }
+          }
         }
       }
     }
