@@ -92,8 +92,8 @@
         padding: 15pt;
         margin: 0 auto;
         position: relative;
-        display: none;
-
+ 
+ 
         .svg-overflow {
           overflow: visible;
 
@@ -109,6 +109,7 @@
         }
 
         .invisible-circle {
+                 display: block;
           width: 390pt; // 380pt + 10pt
           height: 390pt; // 380pt + 10pt
 
