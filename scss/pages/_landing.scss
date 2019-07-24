@@ -76,10 +76,6 @@
   }
 
   .future-of-hr-tech {
-    background-image: url("../img/Grey-background-pattern.svg");
-    background-color: $third-color;
-    background-size: contain;
-    background-repeat: repeat;
     height: 100vh;
     width: 100%;
 
@@ -94,7 +90,9 @@
     .animation-container {
       .circle-container {
         padding: 15pt;
+        margin: 0 auto;
         position: relative;
+        display: none;
 
         .svg-overflow {
           overflow: visible;
@@ -110,26 +108,48 @@
           }
         }
 
-       .invisible-circle{ 
-         position: absolute;
-         left: 15pt;
-         right: 15pt;
-         top: 15pt;
-         bottom: 15pt;
-         background-color: rgba(#000, 0.3);
-         border-radius: 100%;
-        //  left: 17pt;
-        //  right: 16pt;
-        //  top: 17pt;
-        //  bottom: 19pt;
+        .invisible-circle {
+          // width: 490px;
+          // height: 490px;
 
-        .point {
-          width: 15pt;
-          height: 15pt;
-          background-color: $primary-color;
+          width: 390pt; // 380pt + 10pt
+          height: 390pt; // 380pt + 10pt
+
+          margin: 0 auto;
+
+          position: absolute;
+          top: calc(50% - 196pt); // calc(50% - 245.5px);
+          bottom: auto;
+          left: 0pt;
+          right: 0pt;
+          background-color: rgba(#000, 0.3);
           border-radius: 100%;
+
+          .point {
+            width: 6pt;
+            height: 6pt;
+            background-color: #000000;
+            border-radius: 100%;
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -3pt;
+            margin-top: -3pt;
+
+            // Moving points
+            $deg: 90deg;
+
+            @for $i from 1 through 40 {
+              &:nth-child(#{$i}) {
+                transform: rotate($deg) translate(196pt);
+              }
+
+              // Adding new value to deg
+              $deg: ($deg + (6.92));
+            }
+          }
         }
-      }
       }
     }
   }
@@ -143,16 +163,21 @@
 
     .siderbar {
       width: 180pt;
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      bottom: 0px;
     }
 
     .future-of-hr-tech {
       flex: 1;
       width: auto;
+      padding-left: 180pt;
 
       .animation-container {
         .circle-container {
-          width: 40%;
-          margin: 0 auto;
+          display: block;
+          width: 370pt;
         }
       }
     }
@@ -163,6 +188,16 @@
   .main {
     .siderbar {
       width: 217pt;
+    }
+
+    .future-of-hr-tech {
+      padding-left: 217pt;
+      
+      .animation-container {
+        .circle-container {
+          width: 520pt;
+        }
+      }
     }
   }
 }

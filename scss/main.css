@@ -472,6 +472,10 @@ body {
   font-style: normal;
   font-size: 18px;
   color: #000000;
+  background-image: url("../img/Grey-background-pattern.svg");
+  background-color: #f2f2f2;
+  background-size: contain;
+  background-repeat: repeat;
 }
 
 h1,
@@ -597,10 +601,6 @@ a:hover, a:active, a:focus {
 }
 
 .main .future-of-hr-tech {
-  background-image: url("../img/Grey-background-pattern.svg");
-  background-color: #f2f2f2;
-  background-size: contain;
-  background-repeat: repeat;
   height: 100vh;
   width: 100%;
 }
@@ -615,7 +615,9 @@ a:hover, a:active, a:focus {
 
 .main .future-of-hr-tech .animation-container .circle-container {
   padding: 15pt;
+  margin: 0 auto;
   position: relative;
+  display: none;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .svg-overflow {
@@ -634,20 +636,228 @@ a:hover, a:active, a:focus {
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .invisible-circle {
+  width: 390pt;
+  height: 390pt;
+  margin: 0 auto;
   position: absolute;
-  left: 15pt;
-  right: 15pt;
-  top: 15pt;
-  bottom: 15pt;
+  top: calc(50% - 196pt);
+  bottom: auto;
+  left: 0pt;
+  right: 0pt;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 100%;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point {
-  width: 15pt;
-  height: 15pt;
-  background-color: #0b3480;
+  width: 6pt;
+  height: 6pt;
+  background-color: #000000;
   border-radius: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -3pt;
+  margin-top: -3pt;
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(1) {
+  -webkit-transform: rotate(90deg) translate(196pt);
+          transform: rotate(90deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(2) {
+  -webkit-transform: rotate(96.92deg) translate(196pt);
+          transform: rotate(96.92deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(3) {
+  -webkit-transform: rotate(103.84deg) translate(196pt);
+          transform: rotate(103.84deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(4) {
+  -webkit-transform: rotate(110.76deg) translate(196pt);
+          transform: rotate(110.76deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(5) {
+  -webkit-transform: rotate(117.68deg) translate(196pt);
+          transform: rotate(117.68deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(6) {
+  -webkit-transform: rotate(124.6deg) translate(196pt);
+          transform: rotate(124.6deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(7) {
+  -webkit-transform: rotate(131.52deg) translate(196pt);
+          transform: rotate(131.52deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(8) {
+  -webkit-transform: rotate(138.44deg) translate(196pt);
+          transform: rotate(138.44deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(9) {
+  -webkit-transform: rotate(145.36deg) translate(196pt);
+          transform: rotate(145.36deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(10) {
+  -webkit-transform: rotate(152.28deg) translate(196pt);
+          transform: rotate(152.28deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(11) {
+  -webkit-transform: rotate(159.2deg) translate(196pt);
+          transform: rotate(159.2deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(12) {
+  -webkit-transform: rotate(166.12deg) translate(196pt);
+          transform: rotate(166.12deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(13) {
+  -webkit-transform: rotate(173.04deg) translate(196pt);
+          transform: rotate(173.04deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(14) {
+  -webkit-transform: rotate(179.96deg) translate(196pt);
+          transform: rotate(179.96deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(15) {
+  -webkit-transform: rotate(186.88deg) translate(196pt);
+          transform: rotate(186.88deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(16) {
+  -webkit-transform: rotate(193.8deg) translate(196pt);
+          transform: rotate(193.8deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(17) {
+  -webkit-transform: rotate(200.72deg) translate(196pt);
+          transform: rotate(200.72deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(18) {
+  -webkit-transform: rotate(207.64deg) translate(196pt);
+          transform: rotate(207.64deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(19) {
+  -webkit-transform: rotate(214.56deg) translate(196pt);
+          transform: rotate(214.56deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(20) {
+  -webkit-transform: rotate(221.48deg) translate(196pt);
+          transform: rotate(221.48deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(21) {
+  -webkit-transform: rotate(228.4deg) translate(196pt);
+          transform: rotate(228.4deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(22) {
+  -webkit-transform: rotate(235.32deg) translate(196pt);
+          transform: rotate(235.32deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(23) {
+  -webkit-transform: rotate(242.24deg) translate(196pt);
+          transform: rotate(242.24deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(24) {
+  -webkit-transform: rotate(249.16deg) translate(196pt);
+          transform: rotate(249.16deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(25) {
+  -webkit-transform: rotate(256.08deg) translate(196pt);
+          transform: rotate(256.08deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(26) {
+  -webkit-transform: rotate(263deg) translate(196pt);
+          transform: rotate(263deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(27) {
+  -webkit-transform: rotate(269.92deg) translate(196pt);
+          transform: rotate(269.92deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(28) {
+  -webkit-transform: rotate(276.84deg) translate(196pt);
+          transform: rotate(276.84deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(29) {
+  -webkit-transform: rotate(283.76deg) translate(196pt);
+          transform: rotate(283.76deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(30) {
+  -webkit-transform: rotate(290.68deg) translate(196pt);
+          transform: rotate(290.68deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(31) {
+  -webkit-transform: rotate(297.6deg) translate(196pt);
+          transform: rotate(297.6deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(32) {
+  -webkit-transform: rotate(304.52deg) translate(196pt);
+          transform: rotate(304.52deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(33) {
+  -webkit-transform: rotate(311.44deg) translate(196pt);
+          transform: rotate(311.44deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(34) {
+  -webkit-transform: rotate(318.36deg) translate(196pt);
+          transform: rotate(318.36deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(35) {
+  -webkit-transform: rotate(325.28deg) translate(196pt);
+          transform: rotate(325.28deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(36) {
+  -webkit-transform: rotate(332.2deg) translate(196pt);
+          transform: rotate(332.2deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(37) {
+  -webkit-transform: rotate(339.12deg) translate(196pt);
+          transform: rotate(339.12deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(38) {
+  -webkit-transform: rotate(346.04deg) translate(196pt);
+          transform: rotate(346.04deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(39) {
+  -webkit-transform: rotate(352.96deg) translate(196pt);
+          transform: rotate(352.96deg) translate(196pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(40) {
+  -webkit-transform: rotate(359.88deg) translate(196pt);
+          transform: rotate(359.88deg) translate(196pt);
 }
 
 @media (min-width: 992px) {
@@ -659,22 +869,33 @@ a:hover, a:active, a:focus {
   }
   .main .siderbar {
     width: 180pt;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
   }
   .main .future-of-hr-tech {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
     width: auto;
+    padding-left: 180pt;
   }
   .main .future-of-hr-tech .animation-container .circle-container {
-    width: 40%;
-    margin: 0 auto;
+    display: block;
+    width: 370pt;
   }
 }
 
 @media (min-width: 1200px) {
   .main .siderbar {
     width: 217pt;
+  }
+  .main .future-of-hr-tech {
+    padding-left: 217pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container {
+    width: 520pt;
   }
 }
 /*# sourceMappingURL=main.css.map */

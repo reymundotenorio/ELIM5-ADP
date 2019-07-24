@@ -8,6 +8,11 @@ body {
   font-style: normal;
   font-size: 18px;
   color: $text-color;
+
+  background-image: url("../img/Grey-background-pattern.svg");
+  background-color: $third-color;
+  background-size: contain;
+  background-repeat: repeat;
 }
 
 h1,

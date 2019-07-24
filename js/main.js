@@ -131,6 +131,10 @@ $(document).ready(function() {
     animateSVG("#circle", 100);
   }
 
+  function animatePoints(){
+    
+  }
+
   // Run init cicle
   initCircle();
 
