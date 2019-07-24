@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var tweenMaxRepeat = new TimelineMax({ repeat: -1 });
 
-
   // Animate SVG
   function animateSVG(target, percent) {
     var path = $(target).get(0);
@@ -111,7 +110,7 @@ $(document).ready(function() {
         delayScale: 1.5,
         delay: 40,
         callback: function() {
-          console.log("Finished loading title");
+          // console.log("Finished loading title");
         }
       },
       out: {
@@ -132,20 +131,51 @@ $(document).ready(function() {
     animateSVG("#circle", 100);
   }
 
+  function sleep(milliseconds) {
+    var start = new Date().getTime();
+
+    for (var i = 0; i < 1e7; i++) {
+      if (new Date().getTime() - start > milliseconds) {
+        break;
+      }
+    }
+  }
+
   function animatePoints() {
+    // var tweenMax = new TimelineMax();
+
     // Get point child element
-    var tweenMax = new TimelineMax();
-    var point = $(".main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(25)");
+    var time = 0.1;
 
-    tweenMax.to(point, 3, {
-      // cssRule: {
-      //   backgroundColor: "#F43C09"
-      // },
-      y: -100,
-      opacity: 0,
+    for (i = 1; i < 40; i++) {
+      var point = $(
+        `.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(${i}) .point`
+      );
 
-      ease: Power1.easeInOut
-    });
+      point.addClass("with-animation");
+      point.css({ "animation-delay": `${time}s` });
+      time += 0.1;
+
+      // point.addClass("with-transition");
+      // sleep(100);
+
+      // window.setTimeout(animateInternalPoint(i), 30000); // 1.5 seconds
+      // tweenMax
+      //   .to(point, 0.5, {
+      //     opacity: 1,
+      //     ease: Power1.easeIn
+      //   })
+      //   .to(
+      //     point,
+      //     0.3,
+      //     {
+      //       width: "6pt",
+      //       height: "6pt",
+      //       ease: Power1.easeIn
+      //     },
+      //     "-=0.4"
+      //   );
+    }
   }
 
   // Run init cicle
@@ -157,4 +187,6 @@ $(document).ready(function() {
   animateTitle();
   // Run animate circle
   animateCircle();
+
+  // animatePoints();
 });

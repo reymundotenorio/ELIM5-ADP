@@ -103,7 +103,7 @@
             fill: none;
 
             &.with-transition {
-              transition: stroke-dasharray 3s ease-in-out;
+              transition: stroke-dasharray 5s ease-in-out;
             }
           }
         }
@@ -125,12 +125,7 @@
           // background-color: rgba(#000, 0.3);
           border-radius: 100%;
 
-          .point {
-            width: 6pt;
-            height: 6pt;
-            background-color: #000000;
-            border-radius: 100%;
-
+          .point-container {
             position: absolute;
             left: 50%;
             top: 50%;
@@ -147,6 +142,24 @@
 
               // Adding new value to deg
               $deg: ($deg + (6.92));
+            }
+
+            .point {
+              width: 6pt;
+              height: 6pt;
+              background-color: #000000;
+              border-radius: 100%;
+
+              opacity: 0;
+              transform: scale(0);
+
+              transform-origin: 50% 50%;
+              // transition: opacity 6s ease-in, transform 3s ease-in;
+
+              &.with-animation {
+                animation: fadePoint 3s ease-in-out forwards, scalePoint 1s ease-in-out forwards;
+                animation-delay: 1s;
+              }
             }
           }
         }
@@ -199,5 +212,25 @@
         }
       }
     }
+  }
+}
+
+@keyframes fadePoint {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scalePoint {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
   }
 }
