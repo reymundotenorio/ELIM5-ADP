@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var tweenMaxRepeat = new TimelineMax({ repeat: -1 });
 
+
   // Animate SVG
   function animateSVG(target, percent) {
     var path = $(target).get(0);
@@ -131,8 +132,20 @@ $(document).ready(function() {
     animateSVG("#circle", 100);
   }
 
-  function animatePoints(){
-    
+  function animatePoints() {
+    // Get point child element
+    var tweenMax = new TimelineMax();
+    var point = $(".main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point:nth-child(25)");
+
+    tweenMax.to(point, 3, {
+      // cssRule: {
+      //   backgroundColor: "#F43C09"
+      // },
+      y: -100,
+      opacity: 0,
+
+      ease: Power1.easeInOut
+    });
   }
 
   // Run init cicle
