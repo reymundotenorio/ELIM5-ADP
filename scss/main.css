@@ -644,6 +644,16 @@ a:hover, a:active, a:focus {
   position: relative;
 }
 
+.main .future-of-hr-tech .animation-container .circle-container:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 2px);
+  width: 4px;
+  background: green;
+}
+
 .main .future-of-hr-tech .animation-container .circle-container .cellphone-container {
   position: relative;
   overflow: hidden;
@@ -960,8 +970,8 @@ a:hover, a:active, a:focus {
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button {
   background-color: #121c4e;
-  width: 50pt;
-  height: 50pt;
+  width: 52pt;
+  height: 52pt;
   border-radius: 100%;
   padding: 5pt;
   display: -webkit-box;
@@ -984,35 +994,35 @@ a:hover, a:active, a:focus {
   bottom: auto;
 }
 
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button:before {
+  content: "";
+  position: absolute;
+  left: -8pt;
+  right: -8pt;
+  top: -8pt;
+  bottom: -8pt;
+  border-radius: 100%;
+  border: 3pt dashed #121c4e;
+}
+
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.executive-manager {
   bottom: -35pt;
-  left: calc(50% - 25pt);
+  left: calc(50% - 36pt);
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.data-explorers {
   left: -35pt;
-  top: calc(50% - 25pt);
+  top: calc(50% - 36pt);
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.reporting-analytics {
   top: -35pt;
-  left: calc(50% - 25pt);
+  left: calc(50% - 36pt);
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.benchmarking {
   right: -35pt;
-  top: calc(50% - 25pt);
-}
-
-.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button:before {
-  content: "";
-  position: absolute;
-  left: -6pt;
-  right: -6pt;
-  top: -6pt;
-  bottom: -6pt;
-  border-radius: 100%;
-  border: 3pt dashed #121c4e;
+  top: calc(50% - 36pt);
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button img {
