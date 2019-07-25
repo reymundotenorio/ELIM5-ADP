@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  var tweenMaxRepeat = new TimelineMax({ repeat: -1 });
-  var tweenMax = new TimelineMax();
-
   // Animate SVG
   function animateSVG(target, percent) {
     var path = $(target).get(0);
@@ -16,6 +13,8 @@ $(document).ready(function() {
 
   // Move buildings background
   function moveBuildingsBackground() {
+    var tweenMaxRepeat = new TimelineMax({ repeat: -1 });
+
     tweenMaxRepeat
       .to("#buildings", 1, {
         backgroundPosition: "30% 100%",
@@ -155,6 +154,8 @@ $(document).ready(function() {
 
   // Animate blue circle
   function animateBlueCircle() {
+    var tweenMax = new TimelineMax();
+
     tweenMax.to("#blue_circle", 0.85, {
       opacity: 1,
       scale: 1,
@@ -165,6 +166,8 @@ $(document).ready(function() {
 
   // Animate iphone
   function animateIphone() {
+    var tweenMax = new TimelineMax();
+
     tweenMax.to("#iphone", 0.6, {
       opacity: 1,
       scale: 1,
@@ -173,16 +176,90 @@ $(document).ready(function() {
     });
   }
 
-  function animateButtonExecutive() {
-    tweenMax.to(".animate.executive-manager", 1.5, {
-      opacity: 1,
-      y: 0,
-      // ease: Linear.easeNone
-    });
+  // Animate button Executive & Manager Insights
+  function animateButtonExecutiveManager() {
+    var tweenMax = new TimelineMax();
+
+    tweenMax
+      .to(".animate.executive-manager", 0.6, {
+        opacity: 1,
+        ease: Linear.easeNone
+      })
+      .to(
+        ".animate.executive-manager",
+        0.6,
+        {
+          y: 0,
+          ease: Power1.easeOut
+        },
+        "-=0.6"
+      );
+  }
+
+  // Animate button Data Explorers
+  function animateButtonDataExplorers() {
+    var tweenMax = new TimelineMax();
+
+    tweenMax
+      .to(".animate.data-explorers", 0.6, {
+        opacity: 1,
+        ease: Linear.easeNone
+      })
+      .to(
+        ".animate.data-explorers",
+        0.6,
+        {
+          x: 0,
+          ease: Power1.easeOut
+        },
+        "-=0.6"
+      );
+  }
+
+  // Animate button Reporting & Analytics
+  function animateButtonReportingAnalytics() {
+    var tweenMax = new TimelineMax();
+
+    tweenMax
+      .to(".animate.reporting-analytics", 0.6, {
+        opacity: 1,
+        ease: Linear.easeNone
+      })
+      .to(
+        ".animate.reporting-analytics",
+        0.6,
+        {
+          y: 0,
+          ease: Power1.easeOut
+        },
+        "-=0.6"
+      );
+  }
+
+  // Animate button Benchmarking
+  function animateButtonBenchmarking() {
+    var tweenMax = new TimelineMax();
+
+    tweenMax
+      .to(".animate.benchmarking", 0.6, {
+        opacity: 1,
+        ease: Linear.easeNone
+      })
+      .to(
+        ".animate.benchmarking",
+        0.6,
+        {
+          x: 0,
+          ease: Power1.easeOut
+        },
+        "-=0.6"
+      );
   }
 
   // Run ALL animations
   function playAnimations() {
+    let timer = 500;
+
     // Run init cicle
     initCircle();
 
@@ -191,21 +268,42 @@ $(document).ready(function() {
 
     // Run animate blue circle
     animateBlueCircle();
+
     // Run animate title
-    // animateTitle();
+    animateTitle();
 
-    // animateIphone();
+    // Run animate iphone
+    setTimeout(function() {
+      animateIphone();
+    }, timer);
 
-    // Run animate points
-    // setTimeout(function() {
-    //   // Run animate iphone
-      
-    // }, 200);
+    // Reset timer
+    timer = 250;
+
+    // Run animate button Executive & Manager Insights
+    setTimeout(function() {
+      animateButtonExecutiveManager();
+    }, timer * 2);
+
+    // Run animate button Data Explorers
+    setTimeout(function() {
+      animateButtonDataExplorers();
+    }, timer * 3);
+
+    // Run animate button Reporting & Analytics
+    setTimeout(function() {
+      animateButtonReportingAnalytics();
+    }, timer * 4);
+
+    // Run animate button Benchmarking
+    setTimeout(function() {
+      animateButtonBenchmarking();
+    }, timer * 5);
 
     // Run animate circle
-    // animateCircle();
-
-    animateButtonExecutive();
+    setTimeout(function() {
+      animateCircle();
+    }, timer * 5);
   }
 
   playAnimations();
