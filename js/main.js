@@ -132,7 +132,7 @@ $(document).ready(function() {
 
       point.addClass("with-animation");
       point.css({ "animation-delay": `${time}s` });
-      time += 0.1;
+      time += 0.05;
     }
   }
 
@@ -150,7 +150,7 @@ $(document).ready(function() {
     // Run animate points
     setTimeout(function() {
       animatePoints();
-    }, 300);
+    }, 200);
   }
 
   // Animate blue circle
@@ -173,6 +173,15 @@ $(document).ready(function() {
     });
   }
 
+  function animateButtonExecutive() {
+    tweenMax.to(".animate.executive-manager", 1.5, {
+      opacity: 1,
+      y: 0,
+      // ease: Linear.easeNone
+    });
+  }
+
+  // Run ALL animations
   function playAnimations() {
     // Run init cicle
     initCircle();
@@ -183,16 +192,20 @@ $(document).ready(function() {
     // Run animate blue circle
     animateBlueCircle();
     // Run animate title
-    animateTitle();
+    // animateTitle();
+
+    // animateIphone();
 
     // Run animate points
-    setTimeout(function() {
-      // Run animate iphone
-      animateIphone();
-    }, 200);
+    // setTimeout(function() {
+    //   // Run animate iphone
+      
+    // }, 200);
 
     // Run animate circle
-    animateCircle();
+    // animateCircle();
+
+    animateButtonExecutive();
   }
 
   playAnimations();

@@ -625,7 +625,7 @@ a:hover, a:active, a:focus {
 }
 
 .main .future-of-hr-tech {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -693,8 +693,8 @@ a:hover, a:active, a:focus {
   -webkit-transform-origin: 35% 50%;
           transform-origin: 35% 50%;
   opacity: 0;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .svg-overflow {
@@ -714,8 +714,8 @@ a:hover, a:active, a:focus {
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .svg-overflow #circle.with-transition {
-  -webkit-transition: stroke-dasharray 5s ease-in-out;
-  transition: stroke-dasharray 5s ease-in-out;
+  -webkit-transition: stroke-dasharray 2s ease-in-out;
+  transition: stroke-dasharray 2s ease-in-out;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .invisible-circle {
@@ -729,6 +729,7 @@ a:hover, a:active, a:focus {
   left: 0pt;
   right: 0pt;
   border-radius: 100%;
+  margin-bottom: 100px;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container {
@@ -945,25 +946,25 @@ a:hover, a:active, a:focus {
   background-color: #000000;
   border-radius: 100%;
   opacity: 0;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2);
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container .point.with-animation {
-  -webkit-animation: fadePoint 4s ease-in-out forwards, scalePoint 3s ease-in-out forwards;
-          animation: fadePoint 4s ease-in-out forwards, scalePoint 3s ease-in-out forwards;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation: fadePoint 1s ease-in-out forwards, scalePoint 1s ease forwards;
+          animation: fadePoint 1s ease-in-out forwards, scalePoint 1s ease forwards;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button {
   background-color: #121c4e;
-  width: 52pt;
-  height: 52pt;
+  width: 45pt;
+  height: 45pt;
   border-radius: 100%;
-  padding: 5pt;
+  padding: 1pt;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -976,49 +977,67 @@ a:hover, a:active, a:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: 6pt solid #ffffff;
+  border: 5pt solid #ffffff;
   position: absolute;
   left: auto;
   right: auto;
   top: auto;
   bottom: auto;
+  z-index: 5;
+  opacity: 0;
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button img {
+  width: 22pt;
+  margin: 0 auto;
+  display: block;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button:before {
   content: "";
   position: absolute;
-  left: -8pt;
-  right: -8pt;
-  top: -8pt;
-  bottom: -8pt;
+  left: -6pt;
+  right: -6pt;
+  top: -6pt;
+  bottom: -6pt;
   border-radius: 100%;
-  border: 3pt dashed #121c4e;
+  border: 2pt dashed #121c4e;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.executive-manager {
   bottom: -55pt;
-  left: calc(50% - 36pt);
+  left: calc(50% - 28pt);
+  -webkit-transform: translateY(-50pt);
+          transform: translateY(-50pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.executive-manager img {
+  width: 17pt;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.data-explorers {
   left: -55pt;
-  top: calc(50% - 36pt);
+  top: calc(50% - 28pt);
+  -webkit-transform: translateX(50pt);
+          transform: translateX(50pt);
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.reporting-analytics {
   top: -55pt;
-  left: calc(50% - 36pt);
+  left: calc(50% - 28pt);
+  -webkit-transform: translateY(50pt);
+          transform: translateY(50pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.reporting-analytics img {
+  width: 20pt;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.benchmarking {
   right: -55pt;
-  top: calc(50% - 36pt);
-}
-
-.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button img {
-  width: 25pt;
-  margin: 0 auto;
-  display: block;
+  top: calc(50% - 28pt);
+  -webkit-transform: translateX(-50pt);
+          transform: translateX(-50pt);
 }
 
 @media (min-width: 768px) {
