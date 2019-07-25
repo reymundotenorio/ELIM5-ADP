@@ -191,9 +191,8 @@ $(document).ready(function() {
       animateIphone();
     }, 200);
 
-      // Run animate circle
-      // animateCircle();
-
+    // Run animate circle
+    animateCircle();
   }
 
   playAnimations();

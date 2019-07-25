@@ -222,6 +222,67 @@
             }
           }
         }
+
+        .buttons-container {
+          .button {
+            background-color: $secondary-color;
+            width: 50pt;
+            height: 50pt;
+            border-radius: 100%;
+            padding: 5pt;
+
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+
+            border: 6pt solid $white;
+            // position: relative;
+
+            position: absolute;
+            left: auto;
+            right: auto;
+            top: auto;
+            bottom: auto;
+
+            &.executive-manager {
+              bottom: -35pt;
+              left: calc(50% - 25pt);
+            }
+
+            &.data-explorers {
+              left: -35pt;
+              top: calc(50% - 25pt);
+            }
+
+            &.reporting-analytics {
+              top: -35pt;
+              left: calc(50% - 25pt);
+            }
+
+            &.benchmarking {
+              right: -35pt;
+              top: calc(50% - 25pt);
+            }
+
+            &:before {
+              content: "";
+              position: absolute;
+              left: -6pt;
+              right: -6pt;
+              top: -6pt;
+              bottom: -6pt;
+              border-radius: 100%;
+              border: 3pt dashed $secondary-color;
+            }
+
+            img {
+              width: 25pt;
+              margin: 0 auto;
+              display: block;
+            }
+          }
+        }
       }
     }
   }

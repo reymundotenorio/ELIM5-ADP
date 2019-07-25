@@ -958,6 +958,69 @@ a:hover, a:active, a:focus {
           animation-delay: 1s;
 }
 
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button {
+  background-color: #121c4e;
+  width: 50pt;
+  height: 50pt;
+  border-radius: 100%;
+  padding: 5pt;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 6pt solid #ffffff;
+  position: absolute;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.executive-manager {
+  bottom: -35pt;
+  left: calc(50% - 25pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.data-explorers {
+  left: -35pt;
+  top: calc(50% - 25pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.reporting-analytics {
+  top: -35pt;
+  left: calc(50% - 25pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.benchmarking {
+  right: -35pt;
+  top: calc(50% - 25pt);
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button:before {
+  content: "";
+  position: absolute;
+  left: -6pt;
+  right: -6pt;
+  top: -6pt;
+  bottom: -6pt;
+  border-radius: 100%;
+  border: 3pt dashed #121c4e;
+}
+
+.main .future-of-hr-tech .animation-container .circle-container .buttons-container .button img {
+  width: 25pt;
+  margin: 0 auto;
+  display: block;
+}
+
 @media (min-width: 768px) {
   .main .future-of-hr-tech h2 {
     padding-bottom: 35pt;
