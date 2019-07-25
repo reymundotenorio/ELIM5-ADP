@@ -85,6 +85,7 @@
       font-size: 50pt;
       line-height: 60pt;
       font-weight: 600;
+      padding: 0pt 15pt;
     }
 
     .animation-container {
@@ -92,10 +93,69 @@
         padding: 15pt;
         margin: 0 auto;
         position: relative;
- 
- 
+
+        .cellphone-container {
+          position: relative;
+          overflow: hidden;
+
+          .blue-circle {
+            position: absolute;
+            left: 0pt;
+            right: 0pt;
+            top: calc(50% - 100pt);
+            bottom: auto;
+
+            width: 180pt;
+            height: 180pt;
+
+            border-radius: 100%;
+            margin: 0 auto;
+
+            background-color: $fourth-color;
+
+            transform-origin: 50% 50%;
+            opacity: 0;
+            transform: scale(0);
+
+            &:after {
+              content: "";
+              position: absolute;
+              left: -15pt;
+              right: -15pt;
+              top: -15pt;
+              bottom: -15pt;
+
+              border-radius: 100%;
+
+              background-color: rgba($fourth-color, 0.5);
+            }
+          }
+
+          .iPhone {
+            position: relative;
+            z-index: 2;
+            max-width: 190pt;
+            margin: 0 auto;
+            width: 75%;
+
+            img {
+              margin-right: -25%;
+
+              transform-origin: 35% 50%;
+              opacity: 0;
+              transform: scale(0);
+            }
+          }
+        }
+
         .svg-overflow {
           overflow: visible;
+          display: none;
+          position: absolute;
+          left: 0pt;
+          right: 0pt;
+          top: calc(50% - 250pt);
+          bottom: auto;
 
           #circle {
             stroke: transparent;
@@ -109,14 +169,14 @@
         }
 
         .invisible-circle {
-                 display: block;
-          width: 390pt; // 380pt + 10pt
-          height: 390pt; // 380pt + 10pt
+          display: none;
+          width: 395pt; // 390pt + 10pt
+          height: 395pt; // 390pt + 10pt
 
           margin: 0 auto;
 
           position: absolute;
-          top: calc(50% - 196pt); // calc(50% - 245.5px);
+          top: calc(50% - 232.5pt);
           bottom: auto;
           left: 0pt;
           right: 0pt;
@@ -134,7 +194,7 @@
 
             @for $i from 1 through 40 {
               &:nth-child(#{$i}) {
-                transform: rotate($deg) translate(200pt);
+                transform: rotate($deg) translate(228pt);
               }
 
               // Adding new value to deg
@@ -165,6 +225,30 @@
   }
 }
 
+@media (min-width: 768px) {
+  .main {
+    .future-of-hr-tech {
+      h2 {
+        padding-bottom: 35pt;
+      }
+
+      .animation-container {
+        .circle-container {
+          width: 400pt;
+
+          .svg-overflow {
+            display: block;
+          }
+
+          .invisible-circle {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 992px) {
   .main {
     .container {
@@ -174,9 +258,9 @@
     .siderbar {
       width: 180pt;
       position: fixed;
-      left: 0px;
-      top: 0px;
-      bottom: 0px;
+      left: 0pt;
+      top: 0pt;
+      bottom: 0pt;
     }
 
     .future-of-hr-tech {
@@ -184,10 +268,35 @@
       width: auto;
       padding-left: 180pt;
 
+      h2 {
+        margin-top: 20pt;
+      }
+
       .animation-container {
         .circle-container {
-          display: block;
-          width: 370pt;
+          width: 435pt;
+
+          .svg-overflow {
+            top: calc(50% - 262pt);
+          }
+
+          .invisible-circle {
+            top: calc(50% - 227pt);
+
+            .point-container {
+              // Moving points
+              $deg: 90deg;
+
+              @for $i from 1 through 40 {
+                &:nth-child(#{$i}) {
+                  transform: rotate($deg) translate(245pt);
+                }
+
+                // Adding new value to deg
+                $deg: ($deg + (6.92));
+              }
+            }
+          }
         }
       }
     }
@@ -207,22 +316,31 @@
         .circle-container {
           width: 520pt;
 
+          .cellphone-container {
+            .iPhone {
+              max-width: 205pt;
+            }
+          }
+
+          .svg-overflow {
+            top: calc(50% - 305pt);
+          }
+
           .invisible-circle {
             width: 546pt;
             height: 546pt;
-  
-            top: calc(50% - 274pt); 
-            
-  
-            .point-container {               
+
+            top: calc(50% - 303.5pt);
+
+            .point-container {
               // Moving points
               $deg: 90deg;
-  
+
               @for $i from 1 through 40 {
                 &:nth-child(#{$i}) {
-                  transform: rotate($deg) translate(274pt);
+                  transform: rotate($deg) translate(286pt);
                 }
-  
+
                 // Adding new value to deg
                 $deg: ($deg + (6.92));
               }

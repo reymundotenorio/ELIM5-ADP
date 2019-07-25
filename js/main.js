@@ -1,5 +1,6 @@
 $(document).ready(function() {
   var tweenMaxRepeat = new TimelineMax({ repeat: -1 });
+  var tweenMax = new TimelineMax();
 
   // Animate SVG
   function animateSVG(target, percent) {
@@ -102,12 +103,13 @@ $(document).ready(function() {
       });
   }
 
+  // Animate title
   function animateTitle() {
     $("#future_title").textillate({
       type: "char",
       in: {
         effect: "fadeInUp",
-        delayScale: 1.5,
+        delayScale: 0.8,
         delay: 40,
         callback: function() {
           // console.log("Finished loading title");
@@ -151,13 +153,48 @@ $(document).ready(function() {
     }, 300);
   }
 
-  // Run init cicle
-  initCircle();
+  // Animate blue circle
+  function animateBlueCircle() {
+    tweenMax.to("#blue_circle", 0.85, {
+      opacity: 1,
+      scale: 1,
+      ease: Linear.easeNone,
+      delay: 0
+    });
+  }
 
-  // Run move buildings background
-  moveBuildingsBackground();
-  // Run animate title
-  animateTitle();
-  // Run animate circle
-  animateCircle();
+  // Animate iphone
+  function animateIphone() {
+    tweenMax.to("#iphone", 0.6, {
+      opacity: 1,
+      scale: 1,
+      ease: Linear.easeNone,
+      delay: 0
+    });
+  }
+
+  function playAnimations() {
+    // Run init cicle
+    initCircle();
+
+    // Run move buildings background
+    moveBuildingsBackground();
+
+    // Run animate blue circle
+    animateBlueCircle();
+    // Run animate title
+    animateTitle();
+
+    // Run animate points
+    setTimeout(function() {
+      // Run animate iphone
+      animateIphone();
+    }, 200);
+
+      // Run animate circle
+      animateCircle();
+
+  }
+
+  playAnimations();
 });
