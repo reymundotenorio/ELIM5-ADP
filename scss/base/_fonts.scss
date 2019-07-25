@@ -42,7 +42,8 @@
   src: url("../fonts/TaubSans-Medium/TaubSans-Medium.eot");
   src: url("../fonts/TaubSans-Medium/TaubSans-Medium.eot?#iefix") format("embedded-opentype"),
     url("../fonts/TaubSans-Medium/TaubSans-Medium.woff2") format("woff2"),
-    url("../fonts/TaubSans-Medium/TaubSans-Medium.woff") format("woff"), url("../fonts/TaubSans-Medium/TaubSans-Medium.otf"),
+    url("../fonts/TaubSans-Medium/TaubSans-Medium.woff") format("woff"),
+    url("../fonts/TaubSans-Medium/TaubSans-Medium.otf"),
     url("../fonts/TaubSans-Medium/TaubSans-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
@@ -60,17 +61,27 @@
 }
 
 @font-face {
+  font-family: "Taub-Sans";
+  src: url("../fonts/TaubSans-Heavy/TaubSans-Heavy.eot");
+  src: url("../fonts/TaubSans-Heavy/TaubSans-Heavy.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/TaubSans-Heavy/TaubSans-Heavy.woff2") format("woff2"),
+    url("../fonts/TaubSans-Heavy/TaubSans-Heavy.woff") format("woff"), url("../fonts/TaubSans-Heavy/TaubSans-Heavy.otf"),
+    url("../fonts/TaubSans-Heavy/TaubSans-Heavy.ttf") format("truetype");
+  font-weight: bold;
+  font-style: 900;
+}
+
+@font-face {
   font-family: "Proxima-Nova";
   src: url("../fonts/Proxima-Nova/ProximaNovaRegular.eot");
   src: url("../fonts/Proxima-Nova/ProximaNovaRegular.eot?#iefix") format("embedded-opentype"),
     url("../fonts/Proxima-Nova/ProximaNovaRegular.woff2") format("woff2"),
-    url("../fonts/Proxima-Nova/ProximaNovaRegular.woff") format("woff"), url("../fonts/Proxima-Nova/ProximaNovaRegular.otf"),
+    url("../fonts/Proxima-Nova/ProximaNovaRegular.woff") format("woff"),
+    url("../fonts/Proxima-Nova/ProximaNovaRegular.otf"),
     url("../fonts/Proxima-Nova/ProximaNovaRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
-
 
 @font-face {
   font-family: "Taub-Display-C";

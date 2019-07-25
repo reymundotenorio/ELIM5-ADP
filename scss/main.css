@@ -23,6 +23,14 @@
 }
 
 @font-face {
+  font-family: "Taub-Sans";
+  src: url("../fonts/TaubSans-Heavy/TaubSans-Heavy.eot");
+  src: url("../fonts/TaubSans-Heavy/TaubSans-Heavy.eot?#iefix") format("embedded-opentype"), url("../fonts/TaubSans-Heavy/TaubSans-Heavy.woff2") format("woff2"), url("../fonts/TaubSans-Heavy/TaubSans-Heavy.woff") format("woff"), url("../fonts/TaubSans-Heavy/TaubSans-Heavy.otf"), url("../fonts/TaubSans-Heavy/TaubSans-Heavy.ttf") format("truetype");
+  font-weight: bold;
+  font-style: 900;
+}
+
+@font-face {
   font-family: "Proxima-Nova";
   src: url("../fonts/Proxima-Nova/ProximaNovaRegular.eot");
   src: url("../fonts/Proxima-Nova/ProximaNovaRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/Proxima-Nova/ProximaNovaRegular.woff2") format("woff2"), url("../fonts/Proxima-Nova/ProximaNovaRegular.woff") format("woff"), url("../fonts/Proxima-Nova/ProximaNovaRegular.otf"), url("../fonts/Proxima-Nova/ProximaNovaRegular.ttf") format("truetype");
@@ -635,13 +643,15 @@ a:hover, a:active, a:focus {
   font-size: 50pt;
   line-height: 60pt;
   font-weight: 600;
+  margin-bottom: 50pt;
   padding: 0pt 15pt;
 }
 
 .main .future-of-hr-tech .animation-container .buttons-container.mobile {
   position: relative;
-  height: 175pt;
-  width: 100%;
+  height: 200pt;
+  max-width: 250pt;
+  margin: 0 auto;
 }
 
 .main .future-of-hr-tech .animation-container .buttons-container.desktop {
@@ -675,6 +685,7 @@ a:hover, a:active, a:focus {
   z-index: 5;
   opacity: 0;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .main .future-of-hr-tech .animation-container .buttons-container .button img {
@@ -728,6 +739,30 @@ a:hover, a:active, a:focus {
   top: calc(50% - 28pt);
   -webkit-transform: translateX(-5pt);
           transform: translateX(-5pt);
+}
+
+.main .future-of-hr-tech .animation-container .information-container {
+  padding: 0pt 15pt;
+}
+
+.main .future-of-hr-tech .animation-container .information-container.mobile {
+  display: block;
+}
+
+.main .future-of-hr-tech .animation-container .information-container.desktop {
+  display: none;
+}
+
+.main .future-of-hr-tech .animation-container .information-container p {
+  text-align: center;
+  font-size: 12pt;
+  font-weight: 300;
+}
+
+.main .future-of-hr-tech .animation-container .information-container p.info-title {
+  color: #121c4e;
+  font-size: 24.15pt;
+  font-weight: 900;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container {
@@ -1062,19 +1097,40 @@ a:hover, a:active, a:focus {
     display: block;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.executive-manager {
-    bottom: -55pt;
+    bottom: -45pt;
+    -webkit-transform: translateY(-50pt);
+            transform: translateY(-50pt);
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.data-explorers {
-    left: -55pt;
+    left: -45pt;
+    -webkit-transform: translateX(50pt);
+            transform: translateX(50pt);
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.reporting-analytics {
-    top: -55pt;
+    top: -45pt;
+    -webkit-transform: translateY(50pt);
+            transform: translateY(50pt);
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.benchmarking {
-    right: -55pt;
+    right: -45pt;
+    -webkit-transform: translateX(-50pt);
+            transform: translateX(-50pt);
+  }
+  .main .future-of-hr-tech .animation-container .information-container {
+    margin-bottom: 80pt;
+  }
+  .main .future-of-hr-tech .animation-container .information-container .description.mobile {
+    display: none;
+  }
+  .main .future-of-hr-tech .animation-container .information-container .description.desktop {
+    display: block;
+  }
+  .main .future-of-hr-tech .animation-container .information-container .description p {
+    text-align: left;
   }
   .main .future-of-hr-tech .animation-container .circle-container {
     width: 400pt;
+    padding-bottom: 38pt;
   }
   .main .future-of-hr-tech .animation-container .circle-container .cellphone-container {
     overflow: visible;
@@ -1085,6 +1141,9 @@ a:hover, a:active, a:focus {
     width: 250pt;
     height: 250pt;
     top: calc(50% - 145pt);
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .cellphone-container .iPhone {
+    width: 42%;
   }
   .main .future-of-hr-tech .animation-container .circle-container .svg-overflow {
     display: block;
@@ -1119,16 +1178,16 @@ a:hover, a:active, a:focus {
     margin-top: 20pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.executive-manager {
-    bottom: -70pt;
+    bottom: -63pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.data-explorers {
-    left: -70pt;
+    left: -63pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.reporting-analytics {
-    top: -70pt;
+    top: -63pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.benchmarking {
-    right: -70pt;
+    right: -63pt;
   }
   .main .future-of-hr-tech .animation-container .circle-container {
     width: 435pt;
@@ -1141,6 +1200,9 @@ a:hover, a:active, a:focus {
     width: 265pt;
     height: 265pt;
     top: calc(50% - 150pt);
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .cellphone-container .iPhone {
+    width: 75%;
   }
   .main .future-of-hr-tech .animation-container .circle-container .svg-overflow {
     top: calc(50% - 262pt);
@@ -1318,16 +1380,16 @@ a:hover, a:active, a:focus {
     padding-left: 217pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.executive-manager {
-    bottom: -35pt;
+    bottom: -30pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.data-explorers {
-    left: -35pt;
+    left: -30pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.reporting-analytics {
-    top: -35pt;
+    top: -30pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.benchmarking {
-    right: -35pt;
+    right: -30pt;
   }
   .main .future-of-hr-tech .animation-container .circle-container {
     width: 520pt;
