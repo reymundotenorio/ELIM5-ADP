@@ -647,6 +647,8 @@ a:hover, a:active, a:focus {
 .main .future-of-hr-tech .animation-container .circle-container .cellphone-container {
   position: relative;
   overflow: hidden;
+  min-width: 200pt;
+  min-height: 200pt;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .cellphone-container .blue-circle {
@@ -963,6 +965,16 @@ a:hover, a:active, a:focus {
   .main .future-of-hr-tech .animation-container .circle-container {
     width: 400pt;
   }
+  .main .future-of-hr-tech .animation-container .circle-container .cellphone-container {
+    overflow: visible;
+    min-width: 270pt;
+    min-height: 270pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .cellphone-container .blue-circle {
+    width: 250pt;
+    height: 250pt;
+    top: calc(50% - 145pt);
+  }
   .main .future-of-hr-tech .animation-container .circle-container .svg-overflow {
     display: block;
   }
@@ -997,6 +1009,15 @@ a:hover, a:active, a:focus {
   }
   .main .future-of-hr-tech .animation-container .circle-container {
     width: 435pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .cellphone-container {
+    min-width: 285pt;
+    min-height: 285pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .cellphone-container .blue-circle {
+    width: 265pt;
+    height: 265pt;
+    top: calc(50% - 150pt);
   }
   .main .future-of-hr-tech .animation-container .circle-container .svg-overflow {
     top: calc(50% - 262pt);
@@ -1176,8 +1197,17 @@ a:hover, a:active, a:focus {
   .main .future-of-hr-tech .animation-container .circle-container {
     width: 520pt;
   }
+  .main .future-of-hr-tech .animation-container .circle-container .cellphone-container {
+    min-width: 320pt;
+    min-height: 320pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .cellphone-container .blue-circle {
+    width: 300pt;
+    height: 300pt;
+    top: calc(50% - 170pt);
+  }
   .main .future-of-hr-tech .animation-container .circle-container .cellphone-container .iPhone {
-    max-width: 205pt;
+    max-width: 210pt;
   }
   .main .future-of-hr-tech .animation-container .circle-container .svg-overflow {
     top: calc(50% - 305pt);

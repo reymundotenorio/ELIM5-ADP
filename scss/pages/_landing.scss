@@ -97,6 +97,8 @@
         .cellphone-container {
           position: relative;
           overflow: hidden;
+          min-width: 200pt;
+          min-height: 200pt;
 
           .blue-circle {
             position: absolute;
@@ -236,6 +238,18 @@
         .circle-container {
           width: 400pt;
 
+          .cellphone-container {
+            overflow: visible;
+            min-width: 270pt;
+            min-height: 270pt;
+
+            .blue-circle {
+              width: 250pt;
+              height: 250pt;
+              top: calc(50% - 145pt);
+            }
+          }
+
           .svg-overflow {
             display: block;
           }
@@ -275,6 +289,17 @@
       .animation-container {
         .circle-container {
           width: 435pt;
+
+          .cellphone-container {
+            min-width: 285pt;
+            min-height: 285pt;
+
+            .blue-circle {
+              width: 265pt;
+              height: 265pt;
+              top: calc(50% - 150pt);
+            }
+          }
 
           .svg-overflow {
             top: calc(50% - 262pt);
@@ -317,8 +342,17 @@
           width: 520pt;
 
           .cellphone-container {
+            min-width: 320pt;
+            min-height: 320pt;
+
+            .blue-circle {
+              width: 300pt;
+              height: 300pt;
+              top: calc(50% - 170pt);
+            }
+
             .iPhone {
-              max-width: 205pt;
+              max-width: 210pt;
             }
           }
 

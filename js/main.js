@@ -192,7 +192,7 @@ $(document).ready(function() {
     }, 200);
 
       // Run animate circle
-      animateCircle();
+      // animateCircle();
 
   }
 
