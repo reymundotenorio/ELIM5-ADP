@@ -644,16 +644,6 @@ a:hover, a:active, a:focus {
   position: relative;
 }
 
-.main .future-of-hr-tech .animation-container .circle-container:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(50% - 2px);
-  width: 4px;
-  background: green;
-}
-
 .main .future-of-hr-tech .animation-container .circle-container .cellphone-container {
   position: relative;
   overflow: hidden;
@@ -1006,22 +996,22 @@ a:hover, a:active, a:focus {
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.executive-manager {
-  bottom: -35pt;
+  bottom: -55pt;
   left: calc(50% - 36pt);
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.data-explorers {
-  left: -35pt;
+  left: -55pt;
   top: calc(50% - 36pt);
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.reporting-analytics {
-  top: -35pt;
+  top: -55pt;
   left: calc(50% - 36pt);
 }
 
 .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.benchmarking {
-  right: -35pt;
+  right: -55pt;
   top: calc(50% - 36pt);
 }
 
@@ -1053,6 +1043,18 @@ a:hover, a:active, a:focus {
   }
   .main .future-of-hr-tech .animation-container .circle-container .invisible-circle {
     display: block;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.executive-manager {
+    bottom: -55pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.data-explorers {
+    left: -55pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.reporting-analytics {
+    top: -55pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.benchmarking {
+    right: -55pt;
   }
 }
 
@@ -1258,6 +1260,18 @@ a:hover, a:active, a:focus {
     -webkit-transform: rotate(359.88deg) translate(245pt);
             transform: rotate(359.88deg) translate(245pt);
   }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.executive-manager {
+    bottom: -70pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.data-explorers {
+    left: -70pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.reporting-analytics {
+    top: -70pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.benchmarking {
+    right: -70pt;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1449,6 +1463,18 @@ a:hover, a:active, a:focus {
   .main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(40) {
     -webkit-transform: rotate(359.88deg) translate(286pt);
             transform: rotate(359.88deg) translate(286pt);
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.executive-manager {
+    bottom: -35pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.data-explorers {
+    left: -35pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.reporting-analytics {
+    top: -35pt;
+  }
+  .main .future-of-hr-tech .animation-container .circle-container .buttons-container .button.benchmarking {
+    right: -35pt;
   }
 }
 
