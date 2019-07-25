@@ -645,6 +645,7 @@ a:hover, a:active, a:focus {
   font-weight: 600;
   margin-bottom: 50pt;
   padding: 0pt 15pt;
+  visibility: hidden;
 }
 
 .main .future-of-hr-tech .animation-container .buttons-container.mobile {
@@ -686,6 +687,24 @@ a:hover, a:active, a:focus {
   opacity: 0;
   margin: 0 auto;
   cursor: pointer;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button:hover, .main .future-of-hr-tech .animation-container .buttons-container .button:active, .main .future-of-hr-tech .animation-container .buttons-container .button:focus {
+  -webkit-transform: scale(1.2) !important;
+          transform: scale(1.2) !important;
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button.active {
+  -webkit-transform: scale(1.2) !important;
+          transform: scale(1.2) !important;
 }
 
 .main .future-of-hr-tech .animation-container .buttons-container .button img {
@@ -747,22 +766,30 @@ a:hover, a:active, a:focus {
 
 .main .future-of-hr-tech .animation-container .information-container.mobile {
   display: block;
+  margin-top: 10pt;
 }
 
 .main .future-of-hr-tech .animation-container .information-container.desktop {
   display: none;
 }
 
-.main .future-of-hr-tech .animation-container .information-container p {
+.main .future-of-hr-tech .animation-container .information-container .description p {
   text-align: center;
   font-size: 12pt;
   font-weight: 300;
+  margin-top: 0;
 }
 
-.main .future-of-hr-tech .animation-container .information-container p.info-title {
+.main .future-of-hr-tech .animation-container .information-container .description p:last-child {
+  margin-bottom: 0;
+}
+
+.main .future-of-hr-tech .animation-container .information-container .description p.info-title {
   color: #121c4e;
   font-size: 24.15pt;
+  line-height: 1;
   font-weight: 900;
+  margin-bottom: 10pt;
 }
 
 .main .future-of-hr-tech .animation-container .circle-container {
@@ -1117,16 +1144,27 @@ a:hover, a:active, a:focus {
             transform: translateX(-50pt);
   }
   .main .future-of-hr-tech .animation-container .information-container {
-    margin-bottom: 80pt;
+    position: absolute;
+    top: 315pt;
+    bottom: auto;
+    right: -85pt;
+    left: 265pt;
   }
-  .main .future-of-hr-tech .animation-container .information-container .description.mobile {
+  .main .future-of-hr-tech .animation-container .information-container.mobile {
     display: none;
   }
-  .main .future-of-hr-tech .animation-container .information-container .description.desktop {
+  .main .future-of-hr-tech .animation-container .information-container.desktop {
     display: block;
   }
   .main .future-of-hr-tech .animation-container .information-container .description p {
     text-align: left;
+    visibility: hidden;
+  }
+  .main .future-of-hr-tech .animation-container .information-container .description p.info-title {
+    font-size: 22pt;
+  }
+  .main .future-of-hr-tech .animation-container .information-container .description p.info-text {
+    display: inline;
   }
   .main .future-of-hr-tech .animation-container .circle-container {
     width: 400pt;

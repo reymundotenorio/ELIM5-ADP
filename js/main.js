@@ -256,12 +256,250 @@ $(document).ready(function() {
       );
   }
 
+  // Collapse and add/remove active class to button
+  function collapseAndActive(button, block) {
+    block.slideToggle(300, function() {
+      if (block.css("display") === "block") {
+        $(this).addClass("active");
+        button.addClass("active");
+      } else {
+        $(this).removeClass("active");
+        button.removeClass("active");
+      }
+    });
+  }
+
+  function hidePreviousCollapse(currentIndex) {
+    var selectors = ["executive-manager", "data-explorers", "reporting-analytics", "benchmarking"];
+
+    selectors.forEach(function(item, index) {
+      if (index != currentIndex) {
+        var block = $(`.description.mobile.${item}`);
+        var button = $(`.button.mobile.${item}`);
+
+        if (block.hasClass("active")) {
+          collapseAndActive(button, block);
+        }
+      }
+    });
+  }
+
+  // Button mobile click listener - Executive & Manager Insights
+  $(".button.mobile.executive-manager").click(function() {
+    var buttonElement = $(this);
+    var blockElement = $(".description.mobile.executive-manager");
+
+    hidePreviousCollapse(0);
+    collapseAndActive(buttonElement, blockElement);
+  });
+
+  // Button mobile click listener - Data Explorers
+  $(".button.mobile.data-explorers").click(function() {
+    var buttonElement = $(this);
+    var blockElement = $(".description.mobile.data-explorers");
+
+    hidePreviousCollapse(1);
+    collapseAndActive(buttonElement, blockElement);
+  });
+
+  // Button mobile click listener - Reporting & Analytics
+  $(".button.mobile.reporting-analytics").click(function() {
+    var buttonElement = $(this);
+    var blockElement = $(".description.mobile.reporting-analytics");
+
+    hidePreviousCollapse(2);
+    collapseAndActive(buttonElement, blockElement);
+  });
+
+  // Button mobile click listener - Benchmarking
+  $(".button.mobile.benchmarking").click(function() {
+    var buttonElement = $(this);
+    var blockElement = $(".description.mobile.benchmarking");
+
+    hidePreviousCollapse(3);
+    collapseAndActive(buttonElement, blockElement);
+  });
+
+  function addTextillateToInformation() {
+    var titles = [
+      "#executive_manager_title",
+      "#data_explorers_title",
+      "#reporting_analytics_title",
+      "#benchmarking_title"
+    ];
+
+    var descriptions = [
+      "#data_explorers_description",
+      "#executive_manager_description",
+      "#reporting_analytics_description",
+      "#benchmarking_description"
+    ];
+
+    titles.forEach(title => {
+      $(title).textillate({
+        type: "char",
+        autoStart: false,
+        loop: true,
+        in: {
+          effect: "fadeInLeft",
+          delayScale: 0.5
+        },
+        out: {
+          effect: "fadeOutLeft",
+          delayScale: 0.5
+        }
+      });
+    });
+
+    descriptions.forEach(description => {
+      $(description).textillate({
+        type: "word",
+        autoStart: false,
+        loop: true,
+        in: {
+          effect: "fadeInDown",
+          delayScale: 0.5,
+          sync: true
+        },
+        out: {
+          effect: "fadeOutUp",
+          delayScale: 0.5,
+          sync: true
+        }
+      });
+    });
+  }
+  
+  function closeNonActiveDescriptions() {
+    var titles = [
+      "#executive_manager_title",
+      "#data_explorers_title",
+      "#reporting_analytics_title",
+      "#benchmarking_title"
+    ];
+
+    var descriptions = [
+      "#data_explorers_description",
+      "#executive_manager_description",
+      "#reporting_analytics_description",
+      "#benchmarking_description"
+    ];
+
+    titles.forEach(title => {
+      $(title).textillate({
+        type: "char",
+        autoStart: false,
+        loop: true,
+        in: {
+          effect: "fadeInLeft",
+          delayScale: 0.5
+        },
+        out: {
+          effect: "fadeOutLeft",
+          delayScale: 0.5
+        }
+      });
+    });
+
+    descriptions.forEach(description => {
+      $(description).textillate({
+        type: "word",
+        autoStart: false,
+        loop: true,
+        in: {
+          effect: "fadeInDown",
+          delayScale: 0.5,
+          sync: true
+        },
+        out: {
+          effect: "fadeOutUp",
+          delayScale: 0.5,
+          sync: true
+        }
+      });
+    });
+  }
+
+  // Show descriptions with animation
+  function animateShowDescriptions(title, description) {
+    $(title).textillate("in");
+
+    setTimeout(() => {
+      $(description).textillate("in");
+    }, 800);
+
+    // // var description = $(element);
+    // // // Show container
+    // // description.fadeIn(300, function() {
+    // // });
+    // // Animate title
+    // $(element).textillate({
+    //   type: "char",
+    //   autoStart: false,
+    //   loop: true,
+    //   in: {
+    //     effect: "fadeInLeft"
+    //     // delayScale: 0.5,
+    //     // callback: function() {
+    //     //   // Animate description text
+    //     //   description.find(".info-text").textillate({
+    //     //     type: "word",
+    //     //     // autoStart: false,
+    //     //     in: {
+    //     //       effect: "fadeInDown",
+    //     //       delayScale: 1,
+    //     //       delay: 0,
+    //     //       sync: true
+    //     //     },
+    //     //     out: {
+    //     //       effect: "fadeOutUp",
+    //     //       delayScale: 1.5,
+    //     //       delay: 50,
+    //     //       sync: true
+    //     //     }
+    //     //   });
+    //     // }
+    //   },
+    //   out: {
+    //     effect: "fadeOutLeft"
+    //     // delayScale: 0.5,
+    //     // callback: function() {
+    //     // Hide container
+    //     // description.fadeOut(300);
+    //     // }
+    //   }
+    // });
+  }
+
+  // Animate description Data Explorers
+  function animateDescriptionExecutiveManager() {
+    animateShowDescriptions("#executive_manager_title", "#executive_manager_description");
+  }
+
+  // Animate description Executive Manager
+  function animateDescriptionDataExplorers() {
+    animateShowDescriptions("#data_explorers_title", "#data_explorers_description");
+  }
+
+  // Animate description Reporting & Analytics
+  function animateDescriptionExecutiveReportingAnalytics() {
+    animateShowDescriptions("#reporting_analytics_title", "#reporting_analytics_description");
+  }
+
+  // Animate description Benchmarking
+  function animateDescriptionBenchmarking() {
+    animateShowDescriptions("#benchmarking_title", "#benchmarking_description");
+  }
+
   // Run ALL animations
   function playAnimations() {
     let timer = 500;
 
     // Run init cicle
     initCircle();
+
+    // Run init textillate
+    addTextillateToInformation();
 
     // Run move buildings background
     moveBuildingsBackground();
@@ -304,6 +542,38 @@ $(document).ready(function() {
     setTimeout(function() {
       animateCircle();
     }, timer * 5);
+
+      // Reset timer
+    timer = 4800;
+
+    // Run animate descriptions
+    setTimeout(function() {
+      animateDescriptionExecutiveManager();
+    }, timer);
+
+    // Increasing timer
+    timer += 2000;
+
+    // Run animate descriptions
+    setTimeout(function() {
+      animateDescriptionDataExplorers();
+    }, timer);
+
+    // Increasing timer
+    timer += 2000;
+
+    // Run animate descriptions
+    setTimeout(function() {
+      animateDescriptionExecutiveReportingAnalytics();
+    }, timer);
+
+    // Increasing timer
+    timer += 2000;
+
+    // Run animate descriptions
+    setTimeout(function() {
+      animateDescriptionBenchmarking();
+    }, timer);
   }
 
   playAnimations();

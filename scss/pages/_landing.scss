@@ -87,6 +87,7 @@
       font-weight: 600;
       margin-bottom: 50pt;
       padding: 0pt 15pt;
+      visibility: hidden;
     }
 
     .animation-container {
@@ -128,6 +129,18 @@
 
           margin: 0 auto;
           cursor: pointer;
+
+          transform-origin: 50% 50%;
+          transition: transform 0.5s ease;
+          transform: scale(1);
+
+          @include on-event {
+            transform: scale(1.2) !important;
+          }
+
+          &.active {
+            transform: scale(1.2) !important;
+          }
 
           img {
             width: 22pt;
@@ -189,21 +202,34 @@
 
         &.mobile {
           display: block;
+          margin-top: 10pt;
         }
 
         &.desktop {
           display: none;
         }
 
-        p {
-          text-align: center;
-          font-size: 12pt;
-          font-weight: 300;
+        .description {
+          // transition: all 3s ease;
+          // display: none;
 
-          &.info-title {
-            color: $secondary-color;
-            font-size: 24.15pt;
-            font-weight: 900;
+          p {
+            text-align: center;
+            font-size: 12pt;
+            font-weight: 300;
+            margin-top: 0;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &.info-title {
+              color: $secondary-color;
+              font-size: 24.15pt;
+              line-height: 1;
+              font-weight: 900;
+              margin-bottom: 10pt;
+            }
           }
         }
       }
@@ -400,19 +426,33 @@
         }
 
         .information-container {
-          margin-bottom: 80pt;
+          position: absolute;
+          top: 315pt;
+          bottom: auto;
+          right: -85pt;
+          left: 265pt;
+
+          &.mobile {
+            display: none;
+          }
+
+          &.desktop {
+            display: block;
+          }
 
           .description {
-            &.mobile {
-              display: none;
-            }
-
-            &.desktop {
-              display: block;
-            }
-
             p {
               text-align: left;
+              visibility: hidden;
+
+              &.info-title {
+                // text-align: right;
+                font-size: 22pt;
+              }
+
+              &.info-text {
+                display: inline;
+              }
             }
           }
         }
