@@ -125,7 +125,9 @@ $(document).ready(function() {
     var time = 0.1;
 
     for (i = 1; i < 40; i++) {
-      var point = $(`.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(${i}) .point`);
+      var point = $(
+        `.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(${i}) .point`
+      );
 
       point.addClass("with-animation");
       point.css({ "animation-delay": `${time}s` });
@@ -319,9 +321,24 @@ $(document).ready(function() {
   });
 
   function addTextillateToInformation() {
-    var titles = ["#executive_manager_title", "#data_explorers_title", "#reporting_analytics_title", "#benchmarking_title"];
-    var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
-    var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
+    var titles = [
+      "#executive_manager_title",
+      "#data_explorers_title",
+      "#reporting_analytics_title",
+      "#benchmarking_title"
+    ];
+    var descriptions = [
+      "#executive_manager_description",
+      "#data_explorers_description",
+      "#reporting_analytics_description",
+      "#benchmarking_description"
+    ];
+    var containers = [
+      ".description.desktop.executive-manager",
+      ".description.desktop.data-explorers",
+      ".description.desktop.reporting-analytics",
+      ".description.desktop.benchmarking"
+    ];
 
     titles.forEach((title, count) => {
       $(title).textillate({
@@ -367,10 +384,25 @@ $(document).ready(function() {
     });
   }
 
-  function closeNonActiveDescriptions(index) {
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
-    var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
-    var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
+  async function closeNonActiveDescriptions(index) {
+    var buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
+    var containers = [
+      ".description.desktop.executive-manager",
+      ".description.desktop.data-explorers",
+      ".description.desktop.reporting-analytics",
+      ".description.desktop.benchmarking"
+    ];
+    var descriptions = [
+      "#executive_manager_description",
+      "#data_explorers_description",
+      "#reporting_analytics_description",
+      "#benchmarking_description"
+    ];
 
     descriptions.forEach((description, count) => {
       if (count != index) {
@@ -382,29 +414,31 @@ $(document).ready(function() {
         }
       }
     });
+
+    return;
   }
 
   // Show descriptions with animation
-  function animateShowDescriptions(timer = 0, index, button, container, title) {
-    closeNonActiveDescriptions(index);
-    console.log(timer);
-    
+  async function animateShowDescriptions(timer = 0, index, button, container, title) {
+    await closeNonActiveDescriptions(index);
+    // console.log(timer);
 
-    timer > 0 ? (timer += 500) : timer;
+    // timer > 0 ? (timer *= 9800) : timer;
 
-    setTimeout(() => {
-      $(container).fadeIn(10, () => {
-        $(title).textillate("in");
-        $(button).addClass("active");
-        $(container).addClass("active");
-      });
-    }, timer);
+    // setTimeout(() => {
+    $(container).fadeIn(10, () => {
+      $(title).textillate("in");
+      $(button).addClass("active");
+      $(container).addClass("active");
+    });
+    // }, timer);
+
+    return;
   }
 
   // Run ALL animations
   function playAnimations() {
-    let timer = 500;
-
+    
     // Run init cicle
     initCircle();
 
@@ -419,6 +453,8 @@ $(document).ready(function() {
 
     // Run animate title
     animateTitle();
+
+    let timer = 500;
 
     // Run animate iphone
     setTimeout(function() {
@@ -457,38 +493,43 @@ $(document).ready(function() {
     timer = 4800;
 
     // Run animate descriptions
-    setTimeout(function() {
+    // setTimeout(function() {
       // Animate description Data Explorers
-      animateShowDescriptions(timer, 0, ".button.desktop.data-explorers", ".description.desktop.executive-manager", "#executive_manager_title");
-    }, timer);
+    await animateShowDescriptions(
+             1,
+        0,
+        ".button.desktop.data-explorers",
+        ".description.desktop.executive-manager",
+        "#executive_manager_title"
+      );
 
-    // Increasing timer
-    timer += 5000;
-
-    // Run animate descriptions
-    setTimeout(function() {
       // Animate description Executive Manager
+    await animateShowDescriptions(
+        2,
+        1,
+        ".button.desktop.executive-manager",
+        ".description.desktop.data-explorers",
+        "#data_explorers_title"
+      );
 
-      animateShowDescriptions(timer, 1, ".button.desktop.executive-manager", ".description.desktop.data-explorers", "#data_explorers_title");
-    }, timer);
-
-    // Increasing timer
-    timer += 5000;
-
-    // Run animate descriptions
-    setTimeout(function() {
       // Animate description Reporting & Analytics
-      animateShowDescriptions(timer, 2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title");
-    }, timer);
+    await animateShowDescriptions(
+        3,
+        2,
+        ".button.desktop.reporting-analytics",
+        ".description.desktop.reporting-analytics",
+        "#reporting_analytics_title"
+      );
 
-    // Increasing timer
-    timer += 5000;
-
-    // Run animate descriptions
-    setTimeout(function() {
       // Animate description Benchmarking
-      animateShowDescriptions(timer, 3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title");
-    }, timer);
+      animateShowDescriptions(
+        4,
+        3,
+        ".button.desktop.benchmarking",
+        ".description.desktop.benchmarking",
+        "#benchmarking_title"
+      );
+    // }, timer);
   }
 
   playAnimations();
