@@ -510,21 +510,19 @@ $(document).ready(function() {
 
   // Show descriptions with animation with click
   function animateShowDescriptionsClick(index, button, container, title) {
+    $(`${buttons[index]}>.explosion>.points-around>.points-container>.point`).removeAttr("style");
+    $(`${buttons[index]}>.explosion>.points-around>.points-container`).removeAttr("style");
+    $(`${buttons[index]}>.explosion>.points-around`).removeAttr("style");
+    $(`${buttons[index]}>.explosion`).removeAttr("style");
+
     var tweenMax = new TimelineMax();
     var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
     var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
 
-    $(`${buttons[index]}>.explosion`).removeAttr("style");
-    $(`${buttons[index]}>.explosion>.points-around`).removeAttr("style");
-    $(`${buttons[index]}>.explosion>.points-around>.points-container`).removeAttr("style");
-    $(`${buttons[index]}>.explosion>.points-around>.points-container>.point`).removeAttr("style");
-
-    setTimeout(() => {
-      tweenMax.to(`${buttons[index]}>.explosion`, 0.45, { left: "-20pt", right: "-20pt", top: "-20pt", bottom: "-20pt", ease: Linear.easeNone }).to(`${buttons[index]}>.explosion`, 0.08, { borderWidth: 0, ease: Linear.easeNone }, "-=0.1");
-      tweenMax.to(`${buttons[index]}>.explosion>.points-around`, 0.3, { scale: 2, opacity: 1, ease: Linear.easeNone }, "-=0.3");
-      tweenMax.to(`${buttons[index]}>.explosion>.points-around>.points-container`, 0.4, { opacity: 0, ease: Linear.easeNone }, "-=0.3");
-      tweenMax.to(`${buttons[index]}>.explosion>.points-around>.points-container>.point`, 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.4");
-    }, 1000);
+    tweenMax.to(`${buttons[index]}>.explosion`, 0.45, { left: "-20pt", right: "-20pt", top: "-20pt", bottom: "-20pt", ease: Linear.easeNone }).to(`${buttons[index]}>.explosion`, 0.08, { borderWidth: 0, ease: Linear.easeNone }, "-=0.1");
+    tweenMax.to(`${buttons[index]}>.explosion>.points-around`, 0.3, { scale: 2, opacity: 1, ease: Linear.easeNone }, "-=0.3");
+    tweenMax.to(`${buttons[index]}>.explosion>.points-around>.points-container`, 0.4, { opacity: 0, ease: Linear.easeNone }, "-=0.3");
+    tweenMax.to(`${buttons[index]}>.explosion>.points-around>.points-container>.point`, 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.4");
 
     if (informationFirstTime) {
       $(container).fadeIn(10, () => {
