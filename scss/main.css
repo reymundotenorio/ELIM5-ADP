@@ -1276,10 +1276,6 @@ a:hover, a:active, a:focus {
     margin-top: 20pt;
     padding-bottom: 0pt;
   }
-  .main .future-of-hr-tech .animation-container {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-  }
   .main .future-of-hr-tech .animation-container .information-container {
     left: 278pt;
     right: -80pt;

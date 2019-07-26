@@ -416,14 +416,20 @@ $(document).ready(function() {
 
   // Close non active informations
   function closeNonActiveDescriptions(index) {
+    var tweenMax = new TimelineMax();
     var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
     var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
     var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
+    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
 
     descriptions.forEach((description, count) => {
       if (count != index) {
         if ($(containers[count]).hasClass("active")) {
           $(description).textillate("out");
+
+          setTimeout(() => {
+            tweenMax.to(circleTitles[count], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[count], 0.2, { scale: 1, ease: Linear.easeNone });
+          }, 1500);
 
           setTimeout(() => {
             $(containers[count]).removeClass("active");
@@ -436,6 +442,9 @@ $(document).ready(function() {
 
   // Close non active informations on click
   async function closeNonActiveClickDescriptions(index) {
+    var tweenMax = new TimelineMax();
+    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+
     removeListenersToButtons();
 
     return new Promise(function(resolve) {
@@ -447,6 +456,10 @@ $(document).ready(function() {
         if (count != index) {
           if ($(containers[count]).hasClass("active")) {
             $(description).textillate("out");
+
+            setTimeout(() => {
+              tweenMax.to(circleTitles[count], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[count], 0.2, { scale: 1, ease: Linear.easeNone });
+            }, 1500);
 
             setTimeout(() => {
               $(containers[count]).removeClass("active");
@@ -467,11 +480,16 @@ $(document).ready(function() {
 
   // Show descriptions with animation
   async function animateShowDescriptions(index, button, container, title) {
+    var tweenMax = new TimelineMax();
+    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+
     return new Promise(function(resolve) {
       closeNonActiveDescriptions(index);
 
       setTimeout(() => {
         $(container).fadeIn(10, () => {
+          tweenMax.to(circleTitles[index], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[index], 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.1");
+
           $(title).textillate("in");
           $(button).addClass("active");
           $(container).addClass("active");
@@ -486,11 +504,16 @@ $(document).ready(function() {
 
   // Show descriptions with animation with click
   function animateShowDescriptionsClick(index, button, container, title) {
+    var tweenMax = new TimelineMax();
+    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+
     if (informationFirstTime) {
       $(container).fadeIn(10, () => {
         $(title).textillate("in");
         $(button).addClass("active");
         $(container).addClass("active");
+
+        tweenMax.to(circleTitles[index], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[index], 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.1");
       });
     } else {
       closeNonActiveClickDescriptions(index).then(function(response) {
@@ -499,6 +522,8 @@ $(document).ready(function() {
           $(title).textillate("in");
           $(button).addClass("active");
           $(container).addClass("active");
+
+          tweenMax.to(circleTitles[index], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[index], 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.1");
         });
         // }, 2000);
         // console.log(response);
@@ -643,15 +668,12 @@ $(document).ready(function() {
     // Run animate circle
     setTimeout(function() {
       animateCircle();
-    }, timer * 6);
-
-    // Reset timer
-    timer = 4800;
+    }, timer * 13);
 
     // Run animate descriptions
     setTimeout(function() {
       animateDescriptions();
-    }, 1000);
+    }, 1500);
   }
 
   playAnimations();
