@@ -370,7 +370,7 @@ $(document).ready(function() {
   function closeNonActiveDescriptions(index) {
     var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
     var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
-    var descriptions = ["#data_explorers_description", "#executive_manager_description", "#reporting_analytics_description", "#benchmarking_description"];
+    var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
 
     descriptions.forEach((description, count) => {
       if (count != index) {
@@ -385,17 +385,20 @@ $(document).ready(function() {
   }
 
   // Show descriptions with animation
-  function animateShowDescriptions(index, button, container, title, description) {
+  function animateShowDescriptions(timer = 0, index, button, container, title) {
     closeNonActiveDescriptions(index);
-    console.log(index);
+    console.log(timer);
+    
 
-    // setTimeout(() => {
-    $(container).fadeIn(10, () => {
-      $(title).textillate("in");
-      $(button).addClass("active");
-      $(container).addClass("active");
-    });
-    // }, 0);
+    timer > 0 ? (timer += 500) : timer;
+
+    setTimeout(() => {
+      $(container).fadeIn(10, () => {
+        $(title).textillate("in");
+        $(button).addClass("active");
+        $(container).addClass("active");
+      });
+    }, timer);
   }
 
   // Run ALL animations
@@ -456,35 +459,35 @@ $(document).ready(function() {
     // Run animate descriptions
     setTimeout(function() {
       // Animate description Data Explorers
-      animateShowDescriptions(0, ".button.desktop.data-explorers", ".description.desktop.executive-manager", "#executive_manager_title", "#executive_manager_description");
+      animateShowDescriptions(timer, 0, ".button.desktop.data-explorers", ".description.desktop.executive-manager", "#executive_manager_title");
     }, timer);
 
     // Increasing timer
-    timer += 2000;
+    timer += 5000;
 
     // Run animate descriptions
     setTimeout(function() {
       // Animate description Executive Manager
 
-      animateShowDescriptions(1, ".button.desktop.executive-manager", ".description.desktop.data-explorers", "#data_explorers_title", "#data_explorers_description");
+      animateShowDescriptions(timer, 1, ".button.desktop.executive-manager", ".description.desktop.data-explorers", "#data_explorers_title");
     }, timer);
 
     // Increasing timer
-    timer += 2000;
+    timer += 5000;
 
     // Run animate descriptions
     setTimeout(function() {
       // Animate description Reporting & Analytics
-      animateShowDescriptions(2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title", "#reporting_analytics_description");
+      animateShowDescriptions(timer, 2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title");
     }, timer);
 
     // Increasing timer
-    timer += 2000;
+    timer += 5000;
 
     // Run animate descriptions
     setTimeout(function() {
       // Animate description Benchmarking
-      animateShowDescriptions(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title", "#benchmarking_description");
+      animateShowDescriptions(timer, 3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title");
     }, timer);
   }
 
