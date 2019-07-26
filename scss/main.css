@@ -657,6 +657,27 @@ a:hover, a:active, a:focus {
   color: #121c4e;
   font-size: 24.15pt;
   font-weight: 900;
+  opacity: 0;
+}
+
+.main .future-of-hr-tech .animation-container .titles-container .circle-title.executive-manager {
+  -webkit-transform: translateY(-65pt);
+          transform: translateY(-65pt);
+}
+
+.main .future-of-hr-tech .animation-container .titles-container .circle-title.data-explorers {
+  -webkit-transform: translateX(70pt);
+          transform: translateX(70pt);
+}
+
+.main .future-of-hr-tech .animation-container .titles-container .circle-title.reporting-analytics {
+  -webkit-transform: translateY(65pt);
+          transform: translateY(65pt);
+}
+
+.main .future-of-hr-tech .animation-container .titles-container .circle-title.benchmarking {
+  -webkit-transform: translateX(-70pt);
+          transform: translateX(-70pt);
 }
 
 .main .future-of-hr-tech .animation-container .buttons-container.mobile {
@@ -1675,6 +1696,11 @@ a:hover, a:active, a:focus {
     margin-top: 10pt;
     padding-bottom: 30pt;
   }
+  .main .future-of-hr-tech .animation-container .information-container {
+    top: 435pt;
+    right: -215pt;
+    left: 400pt;
+  }
   .main .future-of-hr-tech .animation-container .titles-container {
     display: block;
     position: absolute;
@@ -1690,20 +1716,12 @@ a:hover, a:active, a:focus {
     top: auto;
     bottom: auto;
     margin: 0;
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
   }
   .main .future-of-hr-tech .animation-container .titles-container .circle-title.executive-manager {
     bottom: -70pt;
     left: calc(50% - 160pt);
-    background-color: red;
-  }
-  .main .future-of-hr-tech .animation-container .titles-container .circle-title.executive-manager:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: calc(50% - 2px);
-    width: 4px;
-    background-color: #fff;
   }
   .main .future-of-hr-tech .animation-container .titles-container .circle-title.data-explorers {
     top: 257pt;
@@ -1712,16 +1730,6 @@ a:hover, a:active, a:focus {
   .main .future-of-hr-tech .animation-container .titles-container .circle-title.reporting-analytics {
     top: -70pt;
     left: calc(50% - 120pt);
-    background-color: red;
-  }
-  .main .future-of-hr-tech .animation-container .titles-container .circle-title.reporting-analytics:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: calc(50% - 2px);
-    width: 4px;
-    background-color: #fff;
   }
   .main .future-of-hr-tech .animation-container .titles-container .circle-title.benchmarking {
     top: 257pt;

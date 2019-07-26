@@ -550,7 +550,8 @@ $(document).ready(function() {
     });
   }
 
-  function animateALL() {
+  // Animate descriptions desktop
+  function animateDescriptions() {
     // Animate description Executive Manager
     animateShowDescriptions(0, ".button.desktop.executive-manager", ".description.desktop.executive-manager", "#executive_manager_title").then(function(response) {
       // Animate description Data Explorers
@@ -569,6 +570,21 @@ $(document).ready(function() {
         });
       });
     });
+  }
+
+  // Animate buttons titles
+  function animateButtonsTitles() {
+    var tweenMax = new TimelineMax();
+
+    tweenMax
+      .to(".circle-title.executive-manager", 0.5, { opacity: 1, ease: Linear.easeNone })
+      .to(".circle-title.executive-manager", 0.5, { y: 0, ease: Power1.easeOut }, "-=0.5")
+      .to(".circle-title.data-explorers", 0.5, { opacity: 1, ease: Linear.easeNone })
+      .to(".circle-title.data-explorers", 0.5, { x: 0, ease: Power1.easeOut }, "-=0.5")
+      .to(".circle-title.reporting-analytics", 0.5, { opacity: 1, ease: Linear.easeNone })
+      .to(".circle-title.reporting-analytics", 0.5, { y: 0, ease: Power1.easeOut }, "-=0.5")
+      .to(".circle-title.benchmarking", 0.5, { opacity: 1, ease: Linear.easeNone })
+      .to(".circle-title.benchmarking", 0.5, { x: 0, ease: Power1.easeOut }, "-=0.5");
   }
 
   // Run ALL animations
@@ -619,17 +635,22 @@ $(document).ready(function() {
       animateButtonBenchmarking();
     }, timer * 5);
 
+    // Run animate titles
+    setTimeout(function() {
+      animateButtonsTitles();
+    }, timer * 6);
+
     // Run animate circle
     setTimeout(function() {
       animateCircle();
-    }, timer * 5);
+    }, timer * 6);
 
     // Reset timer
     timer = 4800;
 
     // Run animate descriptions
     setTimeout(function() {
-      animateALL();
+      animateDescriptions();
     }, 1000);
   }
 
