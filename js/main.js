@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(() => {
   let informationFirstTime = true;
 
   // Animate SVG
   function animateSVG(target, percent) {
-    var path = $(target).get(0);
-    var pathLen = path.getTotalLength();
-    var adjustedLen = (percent * pathLen) / 100;
+    let path = $(target).get(0);
+    let pathLen = path.getTotalLength();
+    let adjustedLen = (percent * pathLen) / 100;
     path.setAttribute("stroke-dasharray", adjustedLen + " " + pathLen);
   }
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   // Move buildings background
   function moveBuildingsBackground() {
-    var tweenMaxRepeat = new TimelineMax({ repeat: -1 });
+    let tweenMaxRepeat = new TimelineMax({ repeat: -1 });
 
     tweenMaxRepeat
       .to("#buildings", 1, {
@@ -112,7 +112,7 @@ $(document).ready(function() {
         effect: "fadeInUp",
         delayScale: 0.8,
         delay: 40,
-        callback: function() {
+        callback: () => {
           // console.log("Finished loading title");
         }
       },
@@ -124,10 +124,10 @@ $(document).ready(function() {
 
   function animatePoints() {
     // Get point child element
-    var time = 0.1;
+    let time = 0.1;
 
     for (i = 1; i < 40; i++) {
-      var point = $(`.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(${i}) .point`);
+      let point = $(`.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(${i}) .point`);
 
       point.addClass("with-animation");
       point.css({ "animation-delay": `${time}s` });
@@ -138,7 +138,7 @@ $(document).ready(function() {
   // Animate circle
   function animateCircle() {
     // Get circle element
-    var circleSVG = $("#circle");
+    let circleSVG = $("#circle");
     // Adding stroke color
     circleSVG.css({ stroke: "#000000" });
     // Adding class to enable transition
@@ -147,14 +147,14 @@ $(document).ready(function() {
     animateSVG("#circle", 100);
 
     // Run animate points
-    setTimeout(function() {
+    setTimeout(() => {
       animatePoints();
     }, 200);
   }
 
   // Animate blue circle
   function animateBlueCircle() {
-    var tweenMax = new TimelineMax();
+    let tweenMax = new TimelineMax();
 
     tweenMax.to("#blue_circle", 0.85, {
       opacity: 1,
@@ -166,7 +166,7 @@ $(document).ready(function() {
 
   // Animate iphone
   function animateIphone() {
-    var tweenMax = new TimelineMax();
+    let tweenMax = new TimelineMax();
 
     tweenMax.to("#iphone", 0.6, {
       opacity: 1,
@@ -178,7 +178,7 @@ $(document).ready(function() {
 
   // Animate button Executive & Manager Insights
   function animateButtonExecutiveManager() {
-    var tweenMax = new TimelineMax();
+    let tweenMax = new TimelineMax();
 
     tweenMax
       .to(".animate.executive-manager", 0.6, {
@@ -198,7 +198,7 @@ $(document).ready(function() {
 
   // Animate button Data Explorers
   function animateButtonDataExplorers() {
-    var tweenMax = new TimelineMax();
+    let tweenMax = new TimelineMax();
 
     tweenMax
       .to(".animate.data-explorers", 0.6, {
@@ -218,7 +218,7 @@ $(document).ready(function() {
 
   // Animate button Reporting & Analytics
   function animateButtonReportingAnalytics() {
-    var tweenMax = new TimelineMax();
+    let tweenMax = new TimelineMax();
 
     tweenMax
       .to(".animate.reporting-analytics", 0.6, {
@@ -238,7 +238,7 @@ $(document).ready(function() {
 
   // Animate button Benchmarking
   function animateButtonBenchmarking() {
-    var tweenMax = new TimelineMax();
+    let tweenMax = new TimelineMax();
 
     tweenMax
       .to(".animate.benchmarking", 0.6, {
@@ -258,7 +258,7 @@ $(document).ready(function() {
 
   // Collapse and add/remove active class to button
   function collapseAndActive(button, block) {
-    block.slideToggle(300, function() {
+    block.slideToggle(300, () => {
       if (block.css("display") === "block") {
         $(this).addClass("active");
         button.addClass("active");
@@ -270,12 +270,12 @@ $(document).ready(function() {
   }
 
   function hidePreviousCollapse(currentIndex) {
-    var selectors = ["executive-manager", "data-explorers", "reporting-analytics", "benchmarking"];
+    let selectors = ["executive-manager", "data-explorers", "reporting-analytics", "benchmarking"];
 
     selectors.forEach(function(item, index) {
       if (index != currentIndex) {
-        var block = $(`.description.mobile.${item}`);
-        var button = $(`.button.mobile.${item}`);
+        let block = $(`.description.mobile.${item}`);
+        let button = $(`.button.mobile.${item}`);
 
         if (block.hasClass("active")) {
           collapseAndActive(button, block);
@@ -287,36 +287,36 @@ $(document).ready(function() {
   // Activate mobile buttons click listeners
   function ActivateButtonsMobileListers() {
     // Button mobile click listener - Executive & Manager Insights
-    $(".button.mobile.executive-manager").click(function() {
-      var buttonElement = $(this);
-      var blockElement = $(".description.mobile.executive-manager");
+    $(".button.mobile.executive-manager").click(() => {
+      let buttonElement = $(this);
+      let blockElement = $(".description.mobile.executive-manager");
 
       hidePreviousCollapse(0);
       collapseAndActive(buttonElement, blockElement);
     });
 
     // Button mobile click listener - Data Explorers
-    $(".button.mobile.data-explorers").click(function() {
-      var buttonElement = $(this);
-      var blockElement = $(".description.mobile.data-explorers");
+    $(".button.mobile.data-explorers").click(() => {
+      let buttonElement = $(this);
+      let blockElement = $(".description.mobile.data-explorers");
 
       hidePreviousCollapse(1);
       collapseAndActive(buttonElement, blockElement);
     });
 
     // Button mobile click listener - Reporting & Analytics
-    $(".button.mobile.reporting-analytics").click(function() {
-      var buttonElement = $(this);
-      var blockElement = $(".description.mobile.reporting-analytics");
+    $(".button.mobile.reporting-analytics").click(() => {
+      let buttonElement = $(this);
+      let blockElement = $(".description.mobile.reporting-analytics");
 
       hidePreviousCollapse(2);
       collapseAndActive(buttonElement, blockElement);
     });
 
     // Button mobile click listener - Benchmarking
-    $(".button.mobile.benchmarking").click(function() {
-      var buttonElement = $(this);
-      var blockElement = $(".description.mobile.benchmarking");
+    $(".button.mobile.benchmarking").click(() => {
+      let buttonElement = $(this);
+      let blockElement = $(".description.mobile.benchmarking");
 
       hidePreviousCollapse(3);
       collapseAndActive(buttonElement, blockElement);
@@ -325,9 +325,9 @@ $(document).ready(function() {
 
   // Add Textillate properties to informations
   function addTextillateToInformation() {
-    var titles = ["#executive_manager_title", "#data_explorers_title", "#reporting_analytics_title", "#benchmarking_title"];
-    var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
-    var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
+    let titles = ["#executive_manager_title", "#data_explorers_title", "#reporting_analytics_title", "#benchmarking_title"];
+    let descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
+    let containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
 
     titles.forEach((title, count) => {
       $(title).textillate({
@@ -337,14 +337,14 @@ $(document).ready(function() {
         in: {
           effect: "fadeInLeft",
           delayScale: 0.5,
-          callback: function() {
+          callback: () => {
             $(descriptions[count]).textillate("in");
           }
         },
         out: {
           effect: "fadeOutLeft",
           delayScale: 0.5,
-          callback: function() {
+          callback: () => {
             $(containers[count]).fadeOut(10);
           }
         }
@@ -365,7 +365,7 @@ $(document).ready(function() {
           effect: "fadeOutUp",
           delayScale: 0.5,
           sync: true,
-          callback: function() {
+          callback: () => {
             $(titles[count]).textillate("out");
           }
         }
@@ -375,7 +375,7 @@ $(document).ready(function() {
 
   // Remove inactive class from buttons
   function removeInactiveState() {
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
 
     buttons.forEach(button => {
       if ($(button).hasClass("inactive")) {
@@ -407,7 +407,7 @@ $(document).ready(function() {
     // Run deactivate desktop buttons click listeners
     DeactivateButtonsDesktopListeners();
 
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
 
     buttons.forEach(button => {
       $(button).addClass("inactive");
@@ -416,11 +416,11 @@ $(document).ready(function() {
 
   // Close non active informations
   function closeNonActiveDescriptions(index) {
-    var tweenMax = new TimelineMax();
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
-    var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
-    var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
-    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+    let tweenMax = new TimelineMax();
+    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
+    let descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
+    let circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
 
     descriptions.forEach((description, count) => {
       if (count != index) {
@@ -442,15 +442,15 @@ $(document).ready(function() {
 
   // Close non active informations on click
   async function closeNonActiveClickDescriptions(index) {
-    var tweenMax = new TimelineMax();
-    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+    let tweenMax = new TimelineMax();
+    let circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
 
     removeListenersToButtons();
 
     return new Promise(function(resolve) {
-      var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
-      var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
-      var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
+      let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+      let containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
+      let descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
 
       descriptions.forEach((description, count) => {
         if (count != index) {
@@ -480,9 +480,9 @@ $(document).ready(function() {
 
   // Show descriptions with animation
   async function animateShowDescriptions(index, button, container, title) {
-    var tweenMax = new TimelineMax();
-    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let tweenMax = new TimelineMax();
+    let circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
 
     return new Promise(function(resolve) {
       closeNonActiveDescriptions(index);
@@ -510,14 +510,14 @@ $(document).ready(function() {
 
   // Show descriptions with animation with click
   function animateShowDescriptionsClick(index, button, container, title) {
-    $(`${buttons[index]}>.explosion>.points-around>.points-container>.point`).removeAttr("style");
-    $(`${buttons[index]}>.explosion>.points-around>.points-container`).removeAttr("style");
-    $(`${buttons[index]}>.explosion>.points-around`).removeAttr("style");
-    $(`${buttons[index]}>.explosion`).removeAttr("style");
+    let tweenMax = new TimelineMax();
+    let circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
 
-    var tweenMax = new TimelineMax();
-    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    $(`${buttons[index]}>.explosion`).removeAttr("style");
+    $(`${buttons[index]}>.explosion>.points-around`).removeAttr("style");
+    $(`${buttons[index]}>.explosion>.points-around>.points-container`).removeAttr("style");
+    $(`${buttons[index]}>.explosion>.points-around>.points-container>.point`).removeAttr("style");
 
     tweenMax.to(`${buttons[index]}>.explosion`, 0.45, { left: "-20pt", right: "-20pt", top: "-20pt", bottom: "-20pt", ease: Linear.easeNone }).to(`${buttons[index]}>.explosion`, 0.08, { borderWidth: 0, ease: Linear.easeNone }, "-=0.1");
     tweenMax.to(`${buttons[index]}>.explosion>.points-around`, 0.3, { scale: 2, opacity: 1, ease: Linear.easeNone }, "-=0.3");
@@ -553,14 +553,14 @@ $(document).ready(function() {
 
   // Activate desktop buttons click listeners
   function ActivateButtonsDesktopListeners() {
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
 
     buttons.forEach(button => {
       $(button).removeClass("inactive");
     });
 
     // Button desktop click listener - Executive & Manager Insights
-    $(".button.desktop.executive-manager").click(function() {
+    $(".button.desktop.executive-manager").click(() => {
       if (!$(this).hasClass("active")) {
         // Animate description Executive Manager
         animateShowDescriptionsClick(0, ".button.desktop.executive-manager", ".description.desktop.executive-manager", "#executive_manager_title");
@@ -568,7 +568,7 @@ $(document).ready(function() {
     });
 
     // Button desktop click listener - Data Explorers
-    $(".button.desktop.data-explorers").click(function() {
+    $(".button.desktop.data-explorers").click(() => {
       if (!$(this).hasClass("active")) {
         // Animate description Data Explorers
         animateShowDescriptionsClick(1, ".button.desktop.data-explorers", ".description.desktop.data-explorers", "#data_explorers_title");
@@ -576,7 +576,7 @@ $(document).ready(function() {
     });
 
     // Button desktop click listener - Reporting & Analytics
-    $(".button.desktop.reporting-analytics").click(function() {
+    $(".button.desktop.reporting-analytics").click(() => {
       if (!$(this).hasClass("active")) {
         // Animate description Reporting & Analytics
         animateShowDescriptionsClick(2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title");
@@ -584,7 +584,7 @@ $(document).ready(function() {
     });
 
     // Button desktop click listener - Benchmarking
-    $(".button.desktop.benchmarking").click(function() {
+    $(".button.desktop.benchmarking").click(() => {
       if (!$(this).hasClass("active")) {
         // Animate description Benchmarking
         animateShowDescriptionsClick(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title");
@@ -616,7 +616,7 @@ $(document).ready(function() {
 
   // Animate buttons titles
   function animateButtonsTitles() {
-    var tweenMax = new TimelineMax();
+    let tweenMax = new TimelineMax();
 
     tweenMax
       .to(".circle-title.executive-manager", 0.5, { opacity: 1, ease: Linear.easeNone })
@@ -650,7 +650,7 @@ $(document).ready(function() {
     let timer = 500;
 
     // Run animate iphone
-    setTimeout(function() {
+    setTimeout(() => {
       animateIphone();
     }, timer);
 
@@ -658,37 +658,37 @@ $(document).ready(function() {
     timer = 250;
 
     // Run animate button Executive & Manager Insights
-    setTimeout(function() {
+    setTimeout(() => {
       animateButtonExecutiveManager();
     }, timer * 2);
 
     // Run animate button Data Explorers
-    setTimeout(function() {
+    setTimeout(() => {
       animateButtonDataExplorers();
     }, timer * 3);
 
     // Run animate button Reporting & Analytics
-    setTimeout(function() {
+    setTimeout(() => {
       animateButtonReportingAnalytics();
     }, timer * 4);
 
     // Run animate button Benchmarking
-    setTimeout(function() {
+    setTimeout(() => {
       animateButtonBenchmarking();
     }, timer * 5);
 
     // Run animate titles
-    setTimeout(function() {
+    setTimeout(() => {
       animateButtonsTitles();
     }, timer * 6);
 
     // Run animate circle
-    setTimeout(function() {
+    setTimeout(() => {
       animateCircle();
     }, timer * 13);
 
     // Run animate descriptions
-    setTimeout(function() {
+    setTimeout(() => {
       animateDescriptions();
     }, 1500);
   }
