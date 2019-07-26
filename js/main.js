@@ -367,7 +367,7 @@ $(document).ready(function() {
     });
   }
 
-  async function closeNonActiveDescriptions(index) {
+  function closeNonActiveDescriptions(index) {
     var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
     var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
     var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
@@ -382,40 +382,56 @@ $(document).ready(function() {
         }
       }
     });
-
-    return;
   }
 
   // Show descriptions with animation
   async function animateShowDescriptions(timer = 0, index, button, container, title) {
-    await closeNonActiveDescriptions(index);
+    return new Promise(function(resolve, reject) {
+      closeNonActiveDescriptions(index);
 
-    setTimeout(() => {
-      $(container).fadeIn(10, () => {
-        $(title).textillate("in");
-        $(button).addClass("active");
-        $(container).addClass("active");
+      setTimeout(() => {
+        $(container).fadeIn(10, () => {
+          $(title).textillate("in");
+          $(button).addClass("active");
+          $(container).addClass("active");
+        });
+
+        setTimeout(() => {
+          resolve("Done!");
+        }, 4000);
+      }, 3500);
+
+      // if (ready) {
+      //   resolve("Done!");
+      // } else {
+      //   reject(Error("Failed!"));
+      // }
+    });
+  }
+
+  function animateALL() {
+    // // Animate description Executive Manager
+    // try {
+    //   let result = await console.log(result);
+    // } catch (err) {
+    //   console.log(err);
+    // }
+    // // Animate description Data Explorers
+    // try {
+    //   let result1 = await animateShowDescriptions(1, 1, ".button.desktop.data-explorers", ".description.desktop.executive-manager", "#executive_manager_title");
+    //   console.log(result1);
+    // } catch (err) {
+    //   console.log(err);
+    // }
+
+    animateShowDescriptions(2, 0, ".button.desktop.executive-manager", ".description.desktop.data-explorers", "#data_explorers_title")
+      .then(function whenOk(response) {
+        console.log(response);
+        return response;
+      })
+      .catch(function notOk(err) {
+        console.error(err);
       });
-    }, 3500);
-
-    return;
-  }
-
-  // Animate description Executive Manager
-  async function animateDescriptionExecutiveManager() {
-    await animateShowDescriptions(2, 1, ".button.desktop.executive-manager", ".description.desktop.data-explorers", "#data_explorers_title");
-    return;
-  }
-
-  // Animate description Data Explorers
-  async function animateDescriptionDataExplorers() {
-    await animateShowDescriptions(1, 0, ".button.desktop.data-explorers", ".description.desktop.executive-manager", "#executive_manager_title");
-    return;
-  }
-
-  async function animateALL() {
-    await animateDescriptionExecutiveManager();
-    await animateDescriptionDataExplorers();
   }
 
   // Run ALL animations
