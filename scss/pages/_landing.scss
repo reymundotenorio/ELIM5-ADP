@@ -3,9 +3,18 @@
 // -----------------------------------------------------------------------------
 .main {
   .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
   }
 
@@ -29,6 +38,7 @@
         overflow: hidden;
         display: block;
         // outline: none;
+        -webkit-transition: background-color 0.3s ease;
         transition: background-color 0.3s ease;
         cursor: pointer;
 
@@ -102,18 +112,22 @@
           opacity: 0;
 
           &.executive-manager {
+            -webkit-transform: translateY(-65pt);
             transform: translateY(-65pt);
           }
 
           &.data-explorers {
+            -webkit-transform: translateX(70pt);
             transform: translateX(70pt);
           }
 
           &.reporting-analytics {
+            -webkit-transform: translateY(65pt);
             transform: translateY(65pt);
           }
 
           &.benchmarking {
+            -webkit-transform: translateX(-70pt);
             transform: translateX(-70pt);
           }
         }
@@ -139,9 +153,19 @@
           border-radius: 100%;
           padding: 1pt;
 
+          display: -webkit-box;
+
+          display: -ms-flexbox;
+
           display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
           flex-direction: column;
+          -ms-flex-line-pack: center;
           align-content: center;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
           justify-content: center;
 
           border: 5pt solid $white;
@@ -158,8 +182,14 @@
           margin: 0 auto;
           cursor: pointer;
 
+          -webkit-transform-origin: 50% 50%;
+
           transform-origin: 50% 50%;
+          -webkit-transition: -webkit-transform 0.5s ease;
+          transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
+          transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+          -webkit-transform: scale(1);
           transform: scale(1);
 
           .explosion {
@@ -180,6 +210,7 @@
               bottom: 0pt;
               top: 0pt;
               border-radius: 100%;
+              -webkit-transform: scale(1);
               transform: scale(1);
               opacity: 0;
 
@@ -195,6 +226,7 @@
 
                 @for $i from 1 through 20 {
                   &:nth-child(#{$i}) {
+                    -webkit-transform: rotate($deg) translate(25pt);
                     transform: rotate($deg) translate(25pt);
                   }
 
@@ -215,10 +247,12 @@
           }
 
           @include on-event {
+            -webkit-transform: scale(1.2) !important;
             transform: scale(1.2) !important;
           }
 
           &.active {
+            -webkit-transform: scale(1.2) !important;
             transform: scale(1.2) !important;
           }
 
@@ -244,6 +278,8 @@
             bottom: 15pt;
             left: calc(50% - 28pt);
 
+            -webkit-transform: translateY(-5pt);
+
             transform: translateY(-5pt);
 
             img {
@@ -255,12 +291,16 @@
             left: 15pt;
             top: calc(50% - 28pt);
 
+            -webkit-transform: translateX(5pt);
+
             transform: translateX(5pt);
           }
 
           &.reporting-analytics {
             top: 15pt;
             left: calc(50% - 28pt);
+
+            -webkit-transform: translateY(5pt);
 
             transform: translateY(5pt);
 
@@ -272,6 +312,8 @@
           &.benchmarking {
             right: 15pt;
             top: calc(50% - 28pt);
+
+            -webkit-transform: translateX(-5pt);
 
             transform: translateX(-5pt);
           }
@@ -352,8 +394,11 @@
 
             background-color: $fourth-color;
 
+            -webkit-transform-origin: 50% 50%;
+
             transform-origin: 50% 50%;
             opacity: 0;
+            -webkit-transform: scale(0);
             transform: scale(0);
 
             &:after {
@@ -380,8 +425,11 @@
             img {
               margin-right: -25%;
 
+              -webkit-transform-origin: 35% 50%;
+
               transform-origin: 35% 50%;
               opacity: 0;
+              -webkit-transform: scale(0.8);
               transform: scale(0.8);
             }
           }
@@ -402,6 +450,7 @@
             fill: none;
 
             &.with-transition {
+              -webkit-transition: stroke-dasharray 2s ease-in-out;
               transition: stroke-dasharray 2s ease-in-out;
             }
           }
@@ -435,6 +484,7 @@
 
             @for $i from 1 through 40 {
               &:nth-child(#{$i}) {
+                -webkit-transform: rotate($deg) translate(228pt);
                 transform: rotate($deg) translate(228pt);
               }
 
@@ -449,13 +499,18 @@
               border-radius: 100%;
 
               opacity: 0;
+              -webkit-transform: scale(0.2);
               transform: scale(0.2);
+
+              -webkit-transform-origin: 50% 50%;
 
               transform-origin: 50% 50%;
               // transition: opacity 6s ease-in, transform 3s ease-in;
 
               &.with-animation {
+                -webkit-animation: fadePoint 1s ease-in-out forwards, scalePoint 1s ease forwards;
                 animation: fadePoint 1s ease-in-out forwards, scalePoint 1s ease forwards;
+                -webkit-animation-delay: 0s;
                 animation-delay: 0s;
               }
             }
@@ -481,6 +536,7 @@
       }
 
       .animation-container {
+        -webkit-transform: scale(0.8);
         transform: scale(0.8);
 
         .buttons-container {
@@ -498,6 +554,7 @@
                 cursor: not-allowed;
 
                 @include on-event {
+                  -webkit-transform: scale(1) !important;
                   transform: scale(1) !important;
                 }
 
@@ -518,21 +575,25 @@
           .button {
             &.executive-manager {
               bottom: -45pt;
+              -webkit-transform: translateY(-50pt);
               transform: translateY(-50pt);
             }
 
             &.data-explorers {
               left: -45pt;
+              -webkit-transform: translateX(50pt);
               transform: translateX(50pt);
             }
 
             &.reporting-analytics {
               top: -45pt;
+              -webkit-transform: translateY(50pt);
               transform: translateY(50pt);
             }
 
             &.benchmarking {
               right: -45pt;
+              -webkit-transform: translateX(-50pt);
               transform: translateX(-50pt);
             }
           }
@@ -606,6 +667,9 @@
 @media (min-width: 992px) {
   .main {
     .container {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
       flex-direction: row;
     }
 
@@ -622,6 +686,8 @@
     }
 
     .future-of-hr-tech {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
       flex: 1;
       width: auto;
       padding-left: 180pt;
@@ -632,7 +698,6 @@
       }
 
       .animation-container {
-
         .information-container {
           left: 278pt;
           right: -80pt;
@@ -690,6 +755,7 @@
 
               @for $i from 1 through 40 {
                 &:nth-child(#{$i}) {
+                  -webkit-transform: rotate($deg) translate(245pt);
                   transform: rotate($deg) translate(245pt);
                 }
 
@@ -718,7 +784,6 @@
       }
 
       .animation-container {
-        
         .information-container {
           top: 400pt;
           right: -65pt;
@@ -779,6 +844,7 @@
 
               @for $i from 1 through 40 {
                 &:nth-child(#{$i}) {
+                  -webkit-transform: rotate($deg) translate(286pt);
                   transform: rotate($deg) translate(286pt);
                 }
 
@@ -802,6 +868,7 @@
       }
 
       .animation-container {
+        -webkit-transform: scale(1);
         transform: scale(1);
 
         .information-container {
@@ -825,6 +892,8 @@
             top: auto;
             bottom: auto;
             margin: 0;
+
+            -webkit-transform-origin: 50% 50%;
 
             transform-origin: 50% 50%;
 
@@ -854,6 +923,16 @@
   }
 }
 
+@-webkit-keyframes fadePoint {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadePoint {
   from {
     opacity: 0;
@@ -864,12 +943,26 @@
   }
 }
 
-@keyframes scalePoint {
+@-webkit-keyframes scalePoint {
   from {
+    -webkit-transform: scale(0);
     transform: scale(0);
   }
 
   to {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scalePoint {
+  from {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  to {
+    -webkit-transform: scale(1);
     transform: scale(1);
   }
 }
