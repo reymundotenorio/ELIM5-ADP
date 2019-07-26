@@ -729,6 +729,146 @@ a:hover, a:active, a:focus {
           transform: scale(1);
 }
 
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion {
+  position: absolute;
+  left: 0pt;
+  right: 0pt;
+  bottom: 0pt;
+  top: 0pt;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 4pt solid #121c4e;
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around {
+  position: absolute;
+  left: 0pt;
+  right: 0pt;
+  bottom: 0pt;
+  top: 0pt;
+  border-radius: 100%;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 0;
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  opacity: 1;
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(1) {
+  -webkit-transform: rotate(0deg) translate(25pt);
+          transform: rotate(0deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(2) {
+  -webkit-transform: rotate(18deg) translate(25pt);
+          transform: rotate(18deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(3) {
+  -webkit-transform: rotate(36deg) translate(25pt);
+          transform: rotate(36deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(4) {
+  -webkit-transform: rotate(54deg) translate(25pt);
+          transform: rotate(54deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(5) {
+  -webkit-transform: rotate(72deg) translate(25pt);
+          transform: rotate(72deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(6) {
+  -webkit-transform: rotate(90deg) translate(25pt);
+          transform: rotate(90deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(7) {
+  -webkit-transform: rotate(108deg) translate(25pt);
+          transform: rotate(108deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(8) {
+  -webkit-transform: rotate(126deg) translate(25pt);
+          transform: rotate(126deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(9) {
+  -webkit-transform: rotate(144deg) translate(25pt);
+          transform: rotate(144deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(10) {
+  -webkit-transform: rotate(162deg) translate(25pt);
+          transform: rotate(162deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(11) {
+  -webkit-transform: rotate(180deg) translate(25pt);
+          transform: rotate(180deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(12) {
+  -webkit-transform: rotate(198deg) translate(25pt);
+          transform: rotate(198deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(13) {
+  -webkit-transform: rotate(216deg) translate(25pt);
+          transform: rotate(216deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(14) {
+  -webkit-transform: rotate(234deg) translate(25pt);
+          transform: rotate(234deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(15) {
+  -webkit-transform: rotate(252deg) translate(25pt);
+          transform: rotate(252deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(16) {
+  -webkit-transform: rotate(270deg) translate(25pt);
+          transform: rotate(270deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(17) {
+  -webkit-transform: rotate(288deg) translate(25pt);
+          transform: rotate(288deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(18) {
+  -webkit-transform: rotate(306deg) translate(25pt);
+          transform: rotate(306deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(19) {
+  -webkit-transform: rotate(324deg) translate(25pt);
+          transform: rotate(324deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container:nth-child(20) {
+  -webkit-transform: rotate(342deg) translate(25pt);
+          transform: rotate(342deg) translate(25pt);
+}
+
+.main .future-of-hr-tech .animation-container .buttons-container .button .explosion .points-around .points-container .point {
+  width: 4pt;
+  height: 4pt;
+  background-color: #121c4e;
+  position: absolute;
+  border-radius: 100%;
+  opacity: 1;
+}
+
 .main .future-of-hr-tech .animation-container .buttons-container .button:hover, .main .future-of-hr-tech .animation-container .buttons-container .button:active, .main .future-of-hr-tech .animation-container .buttons-container .button:focus {
   -webkit-transform: scale(1.2) !important;
           transform: scale(1.2) !important;
@@ -1156,6 +1296,10 @@ a:hover, a:active, a:focus {
   }
   .main .future-of-hr-tech h2 {
     padding-bottom: 20pt;
+  }
+  .main .future-of-hr-tech .animation-container {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
   }
   .main .future-of-hr-tech .animation-container .buttons-container.mobile {
     display: none;
@@ -1687,10 +1831,14 @@ a:hover, a:active, a:focus {
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1620px) {
   .main .future-of-hr-tech h2 {
     margin-top: 10pt;
-    padding-bottom: 30pt;
+    padding-bottom: 60pt;
+  }
+  .main .future-of-hr-tech .animation-container {
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   .main .future-of-hr-tech .animation-container .information-container {
     top: 435pt;

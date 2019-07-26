@@ -162,6 +162,58 @@
           transition: transform 0.5s ease;
           transform: scale(1);
 
+          .explosion {
+            position: absolute;
+            left: 0pt;
+            right: 0pt;
+            bottom: 0pt;
+            top: 0pt;
+            // z-index: 0;
+            background-color: transparent;
+            border-radius: 100%;
+            border: 4pt solid $secondary-color;
+
+            .points-around {
+              position: absolute;
+              left: 0pt;
+              right: 0pt;
+              bottom: 0pt;
+              top: 0pt;
+              border-radius: 100%;
+              transform: scale(1);
+              opacity: 0;
+
+              .points-container {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 0;
+                opacity: 1;
+
+                // Moving points
+                $deg: 0deg;
+
+                @for $i from 1 through 20 {
+                  &:nth-child(#{$i}) {
+                    transform: rotate($deg) translate(25pt);
+                  }
+
+                  // Adding new value to deg
+                  $deg: ($deg + (18));
+                }
+
+                .point {
+                  width: 4pt;
+                  height: 4pt;
+                  background-color: $secondary-color;
+                  position: absolute;
+                  border-radius: 100%;
+                  opacity: 1;
+                }
+              }
+            }
+          }
+
           @include on-event {
             transform: scale(1.2) !important;
           }
@@ -185,6 +237,7 @@
             bottom: -6pt;
             border-radius: 100%;
             border: 2pt dashed $secondary-color;
+            // z-index: 1;
           }
 
           &.executive-manager {
@@ -428,6 +481,8 @@
       }
 
       .animation-container {
+        transform: scale(0.8);
+
         .buttons-container {
           &.mobile {
             display: none;
@@ -577,7 +632,6 @@
       }
 
       .animation-container {
-        // transform: scale(0.9);
 
         .information-container {
           left: 278pt;
@@ -664,6 +718,7 @@
       }
 
       .animation-container {
+        
         .information-container {
           top: 400pt;
           right: -65pt;
@@ -738,16 +793,16 @@
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1620px) {
   .main {
     .future-of-hr-tech {
       h2 {
         margin-top: 10pt;
-        padding-bottom: 30pt;
+        padding-bottom: 60pt;
       }
 
       .animation-container {
-        // transform: scale(0.9);
+        transform: scale(1);
 
         .information-container {
           top: 435pt;
