@@ -773,6 +773,10 @@ a:hover, a:active, a:focus {
   display: none;
 }
 
+.main .future-of-hr-tech .animation-container .information-container .description {
+  display: none;
+}
+
 .main .future-of-hr-tech .animation-container .information-container .description p {
   text-align: center;
   font-size: 12pt;

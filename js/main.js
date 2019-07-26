@@ -125,9 +125,7 @@ $(document).ready(function() {
     var time = 0.1;
 
     for (i = 1; i < 40; i++) {
-      var point = $(
-        `.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(${i}) .point`
-      );
+      var point = $(`.main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(${i}) .point`);
 
       point.addClass("with-animation");
       point.css({ "animation-delay": `${time}s` });
@@ -321,37 +319,33 @@ $(document).ready(function() {
   });
 
   function addTextillateToInformation() {
-    var titles = [
-      "#executive_manager_title",
-      "#data_explorers_title",
-      "#reporting_analytics_title",
-      "#benchmarking_title"
-    ];
+    var titles = ["#executive_manager_title", "#data_explorers_title", "#reporting_analytics_title", "#benchmarking_title"];
+    var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
+    var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
 
-    var descriptions = [
-      "#data_explorers_description",
-      "#executive_manager_description",
-      "#reporting_analytics_description",
-      "#benchmarking_description"
-    ];
-
-    titles.forEach(title => {
+    titles.forEach((title, count) => {
       $(title).textillate({
         type: "char",
         autoStart: false,
         loop: true,
         in: {
           effect: "fadeInLeft",
-          delayScale: 0.5
+          delayScale: 0.5,
+          callback: function() {
+            $(descriptions[count]).textillate("in");
+          }
         },
         out: {
           effect: "fadeOutLeft",
-          delayScale: 0.5
+          delayScale: 0.5,
+          callback: function() {
+            $(containers[count]).fadeOut(10);
+          }
         }
       });
     });
 
-    descriptions.forEach(description => {
+    descriptions.forEach((description, count) => {
       $(description).textillate({
         type: "word",
         autoStart: false,
@@ -364,131 +358,44 @@ $(document).ready(function() {
         out: {
           effect: "fadeOutUp",
           delayScale: 0.5,
-          sync: true
+          sync: true,
+          callback: function() {
+            $(titles[count]).textillate("out");
+          }
         }
       });
     });
   }
-  
-  function closeNonActiveDescriptions() {
-    var titles = [
-      "#executive_manager_title",
-      "#data_explorers_title",
-      "#reporting_analytics_title",
-      "#benchmarking_title"
-    ];
 
-    var descriptions = [
-      "#data_explorers_description",
-      "#executive_manager_description",
-      "#reporting_analytics_description",
-      "#benchmarking_description"
-    ];
+  function closeNonActiveDescriptions(index) {
+    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
+    var descriptions = ["#data_explorers_description", "#executive_manager_description", "#reporting_analytics_description", "#benchmarking_description"];
 
-    titles.forEach(title => {
-      $(title).textillate({
-        type: "char",
-        autoStart: false,
-        loop: true,
-        in: {
-          effect: "fadeInLeft",
-          delayScale: 0.5
-        },
-        out: {
-          effect: "fadeOutLeft",
-          delayScale: 0.5
+    descriptions.forEach((description, count) => {
+      if (count != index) {
+        if ($(containers[count]).hasClass("active")) {
+          $(description).textillate("out");
+
+          $(buttons[count]).removeClass("active");
+          $(containers[count]).removeClass("active");
         }
-      });
-    });
-
-    descriptions.forEach(description => {
-      $(description).textillate({
-        type: "word",
-        autoStart: false,
-        loop: true,
-        in: {
-          effect: "fadeInDown",
-          delayScale: 0.5,
-          sync: true
-        },
-        out: {
-          effect: "fadeOutUp",
-          delayScale: 0.5,
-          sync: true
-        }
-      });
+      }
     });
   }
 
   // Show descriptions with animation
-  function animateShowDescriptions(title, description) {
-    $(title).textillate("in");
+  function animateShowDescriptions(index, button, container, title, description) {
+    closeNonActiveDescriptions(index);
+    console.log(index);
 
-    setTimeout(() => {
-      $(description).textillate("in");
-    }, 800);
-
-    // // var description = $(element);
-    // // // Show container
-    // // description.fadeIn(300, function() {
-    // // });
-    // // Animate title
-    // $(element).textillate({
-    //   type: "char",
-    //   autoStart: false,
-    //   loop: true,
-    //   in: {
-    //     effect: "fadeInLeft"
-    //     // delayScale: 0.5,
-    //     // callback: function() {
-    //     //   // Animate description text
-    //     //   description.find(".info-text").textillate({
-    //     //     type: "word",
-    //     //     // autoStart: false,
-    //     //     in: {
-    //     //       effect: "fadeInDown",
-    //     //       delayScale: 1,
-    //     //       delay: 0,
-    //     //       sync: true
-    //     //     },
-    //     //     out: {
-    //     //       effect: "fadeOutUp",
-    //     //       delayScale: 1.5,
-    //     //       delay: 50,
-    //     //       sync: true
-    //     //     }
-    //     //   });
-    //     // }
-    //   },
-    //   out: {
-    //     effect: "fadeOutLeft"
-    //     // delayScale: 0.5,
-    //     // callback: function() {
-    //     // Hide container
-    //     // description.fadeOut(300);
-    //     // }
-    //   }
-    // });
-  }
-
-  // Animate description Data Explorers
-  function animateDescriptionExecutiveManager() {
-    animateShowDescriptions("#executive_manager_title", "#executive_manager_description");
-  }
-
-  // Animate description Executive Manager
-  function animateDescriptionDataExplorers() {
-    animateShowDescriptions("#data_explorers_title", "#data_explorers_description");
-  }
-
-  // Animate description Reporting & Analytics
-  function animateDescriptionExecutiveReportingAnalytics() {
-    animateShowDescriptions("#reporting_analytics_title", "#reporting_analytics_description");
-  }
-
-  // Animate description Benchmarking
-  function animateDescriptionBenchmarking() {
-    animateShowDescriptions("#benchmarking_title", "#benchmarking_description");
+    // setTimeout(() => {
+    $(container).fadeIn(10, () => {
+      $(title).textillate("in");
+      $(button).addClass("active");
+      $(container).addClass("active");
+    });
+    // }, 0);
   }
 
   // Run ALL animations
@@ -543,12 +450,13 @@ $(document).ready(function() {
       animateCircle();
     }, timer * 5);
 
-      // Reset timer
+    // Reset timer
     timer = 4800;
 
     // Run animate descriptions
     setTimeout(function() {
-      animateDescriptionExecutiveManager();
+      // Animate description Data Explorers
+      animateShowDescriptions(0, ".button.desktop.data-explorers", ".description.desktop.executive-manager", "#executive_manager_title", "#executive_manager_description");
     }, timer);
 
     // Increasing timer
@@ -556,7 +464,9 @@ $(document).ready(function() {
 
     // Run animate descriptions
     setTimeout(function() {
-      animateDescriptionDataExplorers();
+      // Animate description Executive Manager
+
+      animateShowDescriptions(1, ".button.desktop.executive-manager", ".description.desktop.data-explorers", "#data_explorers_title", "#data_explorers_description");
     }, timer);
 
     // Increasing timer
@@ -564,7 +474,8 @@ $(document).ready(function() {
 
     // Run animate descriptions
     setTimeout(function() {
-      animateDescriptionExecutiveReportingAnalytics();
+      // Animate description Reporting & Analytics
+      animateShowDescriptions(2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title", "#reporting_analytics_description");
     }, timer);
 
     // Increasing timer
@@ -572,7 +483,8 @@ $(document).ready(function() {
 
     // Run animate descriptions
     setTimeout(function() {
-      animateDescriptionBenchmarking();
+      // Animate description Benchmarking
+      animateShowDescriptions(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title", "#benchmarking_description");
     }, timer);
   }
 
