@@ -92,6 +92,16 @@
     }
 
     .animation-container {
+      .titles-container {
+        display: none;
+
+        .circle-title {
+          color: $secondary-color;
+          font-size: 24.15pt;
+          font-weight: 900;
+        }
+      }
+
       .buttons-container {
         &.mobile {
           position: relative;
@@ -414,12 +424,12 @@
 
               &.inactive {
                 cursor: not-allowed;
-                
-                @include on-event{
+
+                @include on-event {
                   transform: scale(1) !important;
                 }
 
-                &:before {
+                &:after {
                   content: "";
                   position: absolute;
                   left: 0pt;
@@ -427,7 +437,7 @@
                   top: 0pt;
                   bottom: 0pt;
                   z-index: 2;
-                  background-color: red;
+                  background-color: transparent;
                 }
               }
             }
@@ -550,6 +560,8 @@
       }
 
       .animation-container {
+        transform: scale(0.9);
+
         .information-container {
           left: 278pt;
           right: -80pt;
@@ -701,6 +713,83 @@
                 // Adding new value to deg
                 $deg: ($deg + (6.92));
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .main {
+    .future-of-hr-tech {
+      h2 {
+        margin-top: 10pt;
+        padding-bottom: 30pt;
+      }
+
+      .animation-container {
+        // transform: scale(0.9);
+
+        .titles-container {
+          display: block;
+          position: absolute;
+          left: 0pt;
+          right: 0pt;
+          top: 0pt;
+          bottom: 0pt;
+
+          .circle-title {
+            position: absolute;
+            left: auto;
+            right: auto;
+            top: auto;
+            bottom: auto;
+            margin: 0;
+
+            &.executive-manager {
+              bottom: -70pt;
+              left: calc(50% - 160pt);
+              
+              background-color: red;
+
+              &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: calc(50% - 2px);
+                width: 4px;
+                background-color: #fff;
+              }
+            }
+
+            &.data-explorers {
+              top: 257pt;
+              left: -203pt;
+            }
+
+            &.reporting-analytics {
+              top: -70pt;
+              left: calc(50% - 120pt);
+
+              background-color: red;
+
+              &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: calc(50% - 2px);
+                width: 4px;
+                background-color: #fff;
+              }
+            }
+
+            &.benchmarking {
+              top: 257pt;
+              right: -198pt;
             }
           }
         }
