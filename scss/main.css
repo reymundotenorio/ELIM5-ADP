@@ -576,6 +576,7 @@ a:hover, a:active, a:focus {
   background-repeat: no-repeat;
   background-position: 0% 100%;
   height: 100vh;
+  max-height: 425pt;
 }
 
 .main .siderbar .siderbar-container .hamburger-menu {
@@ -1118,14 +1119,35 @@ a:hover, a:active, a:focus {
 }
 
 @media (min-width: 768px) {
+  .main .siderbar .siderbar-container {
+    height: 425pt;
+    max-height: none;
+  }
   .main .future-of-hr-tech h2 {
-    padding-bottom: 35pt;
+    padding-bottom: 20pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container.mobile {
     display: none;
   }
   .main .future-of-hr-tech .animation-container .buttons-container.desktop {
     display: block;
+  }
+  .main .future-of-hr-tech .animation-container .buttons-container.desktop .button.inactive {
+    cursor: not-allowed;
+  }
+  .main .future-of-hr-tech .animation-container .buttons-container.desktop .button.inactive:hover, .main .future-of-hr-tech .animation-container .buttons-container.desktop .button.inactive:active, .main .future-of-hr-tech .animation-container .buttons-container.desktop .button.inactive:focus {
+    -webkit-transform: scale(1) !important;
+            transform: scale(1) !important;
+  }
+  .main .future-of-hr-tech .animation-container .buttons-container.desktop .button.inactive:before {
+    content: "";
+    position: absolute;
+    left: 0pt;
+    right: 0pt;
+    top: 0pt;
+    bottom: 0pt;
+    z-index: 2;
+    background-color: red;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.executive-manager {
     bottom: -45pt;
@@ -1209,6 +1231,9 @@ a:hover, a:active, a:focus {
     top: 0pt;
     bottom: 0pt;
   }
+  .main .siderbar .siderbar-container {
+    height: 100vh;
+  }
   .main .future-of-hr-tech {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -1218,6 +1243,11 @@ a:hover, a:active, a:focus {
   }
   .main .future-of-hr-tech h2 {
     margin-top: 20pt;
+    padding-bottom: 0pt;
+  }
+  .main .future-of-hr-tech .animation-container .information-container {
+    left: 278pt;
+    right: -80pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.executive-manager {
     bottom: -63pt;
@@ -1420,6 +1450,14 @@ a:hover, a:active, a:focus {
   }
   .main .future-of-hr-tech {
     padding-left: 217pt;
+  }
+  .main .future-of-hr-tech h2 {
+    padding-bottom: 20pt;
+  }
+  .main .future-of-hr-tech .animation-container .information-container {
+    top: 400pt;
+    right: -65pt;
+    left: 365pt;
   }
   .main .future-of-hr-tech .animation-container .buttons-container .button.executive-manager {
     bottom: -30pt;

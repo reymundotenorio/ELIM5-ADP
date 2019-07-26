@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  let informationFirstTime = true;
+
   // Animate SVG
   function animateSVG(target, percent) {
     var path = $(target).get(0);
@@ -282,42 +284,46 @@ $(document).ready(function() {
     });
   }
 
-  // Button mobile click listener - Executive & Manager Insights
-  $(".button.mobile.executive-manager").click(function() {
-    var buttonElement = $(this);
-    var blockElement = $(".description.mobile.executive-manager");
+  // Activate mobile buttons click listeners
+  function ActivateButtonsMobileListers() {
+    // Button mobile click listener - Executive & Manager Insights
+    $(".button.mobile.executive-manager").click(function() {
+      var buttonElement = $(this);
+      var blockElement = $(".description.mobile.executive-manager");
 
-    hidePreviousCollapse(0);
-    collapseAndActive(buttonElement, blockElement);
-  });
+      hidePreviousCollapse(0);
+      collapseAndActive(buttonElement, blockElement);
+    });
 
-  // Button mobile click listener - Data Explorers
-  $(".button.mobile.data-explorers").click(function() {
-    var buttonElement = $(this);
-    var blockElement = $(".description.mobile.data-explorers");
+    // Button mobile click listener - Data Explorers
+    $(".button.mobile.data-explorers").click(function() {
+      var buttonElement = $(this);
+      var blockElement = $(".description.mobile.data-explorers");
 
-    hidePreviousCollapse(1);
-    collapseAndActive(buttonElement, blockElement);
-  });
+      hidePreviousCollapse(1);
+      collapseAndActive(buttonElement, blockElement);
+    });
 
-  // Button mobile click listener - Reporting & Analytics
-  $(".button.mobile.reporting-analytics").click(function() {
-    var buttonElement = $(this);
-    var blockElement = $(".description.mobile.reporting-analytics");
+    // Button mobile click listener - Reporting & Analytics
+    $(".button.mobile.reporting-analytics").click(function() {
+      var buttonElement = $(this);
+      var blockElement = $(".description.mobile.reporting-analytics");
 
-    hidePreviousCollapse(2);
-    collapseAndActive(buttonElement, blockElement);
-  });
+      hidePreviousCollapse(2);
+      collapseAndActive(buttonElement, blockElement);
+    });
 
-  // Button mobile click listener - Benchmarking
-  $(".button.mobile.benchmarking").click(function() {
-    var buttonElement = $(this);
-    var blockElement = $(".description.mobile.benchmarking");
+    // Button mobile click listener - Benchmarking
+    $(".button.mobile.benchmarking").click(function() {
+      var buttonElement = $(this);
+      var blockElement = $(".description.mobile.benchmarking");
 
-    hidePreviousCollapse(3);
-    collapseAndActive(buttonElement, blockElement);
-  });
+      hidePreviousCollapse(3);
+      collapseAndActive(buttonElement, blockElement);
+    });
+  }
 
+  // Add Textillate properties to informations
   function addTextillateToInformation() {
     var titles = ["#executive_manager_title", "#data_explorers_title", "#reporting_analytics_title", "#benchmarking_title"];
     var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
@@ -367,6 +373,48 @@ $(document).ready(function() {
     });
   }
 
+  // Remove inactive class from buttons
+  function removeInactiveState() {
+    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+
+    buttons.forEach(button => {
+      if ($(button).hasClass("inactive")) {
+        $(button).removeClass("inactive");
+      }
+    });
+
+    // Run activate desktop buttons click listeners
+    ActivateButtonsDesktopListeners();
+  }
+
+  // Activate desktop buttons click listeners
+  function DeactivateButtonsDesktopListeners() {
+    // Button desktop click listener - Executive & Manager Insights
+    $(".button.desktop.executive-manager").unbind("click");
+
+    // Button desktop click listener - Data Explorers
+    $(".button.desktop.data-explorers").unbind("click");
+
+    // Button desktop click listener - Reporting & Analytics
+    $(".button.desktop.reporting-analytics").unbind("click");
+
+    // Button desktop click listener - Benchmarking
+    $(".button.desktop.benchmarking").unbind("click");
+  }
+
+  // Remove listeners from buttons
+  function removeListenersToButtons() {
+    // Run deactivate desktop buttons click listeners
+    DeactivateButtonsDesktopListeners();
+
+    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+
+    buttons.forEach(button => {
+      $(button).addClass("inactive");
+    });
+  }
+
+  // Close non active informations
   function closeNonActiveDescriptions(index) {
     var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
     var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
@@ -377,16 +425,49 @@ $(document).ready(function() {
         if ($(containers[count]).hasClass("active")) {
           $(description).textillate("out");
 
-          $(buttons[count]).removeClass("active");
-          $(containers[count]).removeClass("active");
+          setTimeout(() => {
+            $(containers[count]).removeClass("active");
+            $(buttons[count]).removeClass("active");
+          }, 2000);
         }
       }
     });
   }
 
+  // Close non active informations on click
+  async function closeNonActiveClickDescriptions(index) {
+    removeListenersToButtons();
+
+    return new Promise(function(resolve) {
+      var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+      var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
+      var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
+
+      descriptions.forEach((description, count) => {
+        if (count != index) {
+          if ($(containers[count]).hasClass("active")) {
+            $(description).textillate("out");
+
+            setTimeout(() => {
+              $(containers[count]).removeClass("active");
+              $(buttons[count]).removeClass("active");
+            }, 2000);
+          }
+        }
+      });
+
+      setTimeout(() => {
+        setTimeout(() => {
+          ActivateButtonsDesktopListeners();
+        }, 2500);
+        resolve("Done!");
+      }, 2500);
+    });
+  }
+
   // Show descriptions with animation
-  async function animateShowDescriptions(timer = 0, index, button, container, title) {
-    return new Promise(function(resolve, reject) {
+  async function animateShowDescriptions(index, button, container, title) {
+    return new Promise(function(resolve) {
       closeNonActiveDescriptions(index);
 
       setTimeout(() => {
@@ -400,44 +481,102 @@ $(document).ready(function() {
           resolve("Done!");
         }, 4000);
       }, 3500);
+    });
+  }
 
-      // if (ready) {
-      //   resolve("Done!");
-      // } else {
-      //   reject(Error("Failed!"));
-      // }
+  // Show descriptions with animation with click
+  function animateShowDescriptionsClick(index, button, container, title) {
+    if (informationFirstTime) {
+      $(container).fadeIn(10, () => {
+        $(title).textillate("in");
+        $(button).addClass("active");
+        $(container).addClass("active");
+      });
+    } else {
+      closeNonActiveClickDescriptions(index).then(function(response) {
+        // setTimeout(() => {
+        $(container).fadeIn(10, () => {
+          $(title).textillate("in");
+          $(button).addClass("active");
+          $(container).addClass("active");
+        });
+        // }, 2000);
+        // console.log(response);
+        return;
+      });
+    }
+
+    informationFirstTime = false;
+  }
+
+  // Activate desktop buttons click listeners
+  function ActivateButtonsDesktopListeners() {
+    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+
+    buttons.forEach(button => {
+      $(button).removeClass("inactive");
+    });
+
+    // Button desktop click listener - Executive & Manager Insights
+    $(".button.desktop.executive-manager").click(function() {
+      if (!$(this).hasClass("active")) {
+        // Animate description Executive Manager
+        animateShowDescriptionsClick(0, ".button.desktop.executive-manager", ".description.desktop.executive-manager", "#executive_manager_title");
+      }
+    });
+
+    // Button desktop click listener - Data Explorers
+    $(".button.desktop.data-explorers").click(function() {
+      if (!$(this).hasClass("active")) {
+        // Animate description Data Explorers
+        animateShowDescriptionsClick(1, ".button.desktop.data-explorers", ".description.desktop.data-explorers", "#data_explorers_title");
+      }
+    });
+
+    // Button desktop click listener - Reporting & Analytics
+    $(".button.desktop.reporting-analytics").click(function() {
+      if (!$(this).hasClass("active")) {
+        // Animate description Reporting & Analytics
+        animateShowDescriptionsClick(2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title");
+      }
+    });
+
+    // Button desktop click listener - Benchmarking
+    $(".button.desktop.benchmarking").click(function() {
+      if (!$(this).hasClass("active")) {
+        // Animate description Benchmarking
+        animateShowDescriptionsClick(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title");
+      }
     });
   }
 
   function animateALL() {
-    // // Animate description Executive Manager
-    // try {
-    //   let result = await console.log(result);
-    // } catch (err) {
-    //   console.log(err);
-    // }
-    // // Animate description Data Explorers
-    // try {
-    //   let result1 = await animateShowDescriptions(1, 1, ".button.desktop.data-explorers", ".description.desktop.executive-manager", "#executive_manager_title");
-    //   console.log(result1);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    // Animate description Executive Manager
+    animateShowDescriptions(0, ".button.desktop.executive-manager", ".description.desktop.executive-manager", "#executive_manager_title").then(function(response) {
+      // Animate description Data Explorers
+      animateShowDescriptions(1, ".button.desktop.data-explorers", ".description.desktop.data-explorers", "#data_explorers_title").then(function(response) {
+        // Animate description Reporting & Analytics
+        animateShowDescriptions(2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title").then(function(response) {
+          // Animate description Benchmarking
+          animateShowDescriptions(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title").then(function(response) {
+            // return "Done";
+            closeNonActiveDescriptions(1);
 
-    animateShowDescriptions(2, 0, ".button.desktop.executive-manager", ".description.desktop.data-explorers", "#data_explorers_title")
-      .then(function whenOk(response) {
-        console.log(response);
-        return response;
-      })
-      .catch(function notOk(err) {
-        console.error(err);
+            setTimeout(() => {
+              removeInactiveState();
+            }, 2000);
+          });
+        });
       });
+    });
   }
 
   // Run ALL animations
   function playAnimations() {
     // Run init cicle
     initCircle();
+    // Run activate mobile buttons click listeners
+    ActivateButtonsMobileListers();
 
     // Run init textillate
     addTextillateToInformation();
@@ -489,24 +628,9 @@ $(document).ready(function() {
     timer = 4800;
 
     // Run animate descriptions
-    // setTimeout(function() {
-
     setTimeout(function() {
       animateALL();
     }, 1000);
-
-    // setTimeout(function() {
-    //
-    // }, 10000);
-
-    //   // Animate description Reporting & Analytics
-    // await animateShowDescriptions( 3, 2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title"
-    //   );
-
-    //   // Animate description Benchmarking
-    //   animateShowDescriptions( 4, 3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title"
-    //   );
-    // }, timer);
   }
 
   playAnimations();
