@@ -126,7 +126,7 @@ $(document).ready(function() {
     // Get point child element
     var time = 0.1;
 
-    for (i = 1; i < 40; i++) {
+    for (var i = 1; i < 40; i++) {
       var point = $(".main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(".concat(i, ") .point"));
       point.addClass("with-animation");
       point.css({
