@@ -1,7 +1,9 @@
 "use strict";
 
 $(document).ready(function() {
-  var informationFirstTime = true; // Animate SVG
+  var informationFirstTime = true;
+
+  // Animate SVG
 
   function animateSVG(target, percent) {
     var path = $(target).get(0);
@@ -12,7 +14,9 @@ $(document).ready(function() {
 
   function initCircle() {
     animateSVG("#circle", 0);
-  } // Move buildings background
+  }
+
+  // Move buildings background
 
   function moveBuildingsBackground() {
     var tweenMaxRepeat = new TimelineMax({
@@ -103,7 +107,9 @@ $(document).ready(function() {
         backgroundPosition: "0% 100%",
         ease: Linear.easeNone
       });
-  } // Animate title
+  }
+
+  // Animate title
 
   function animateTitle() {
     $("#future_title").textillate({
@@ -127,30 +133,42 @@ $(document).ready(function() {
     var time = 0.1;
 
     for (var i = 1; i < 40; i++) {
-      var point = $(".main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(".concat(i, ") .point"));
+      var point = $(
+        ".main .future-of-hr-tech .animation-container .circle-container .invisible-circle .point-container:nth-child(".concat(i, ") .point")
+      );
       point.addClass("with-animation");
       point.css({
         "animation-delay": "".concat(time, "s")
       });
       time += 0.05;
     }
-  } // Animate circle
+  }
+
+  // Animate circle
 
   function animateCircle() {
     // Get circle element
-    var circleSVG = $("#circle"); // Adding stroke color
+    var circleSVG = $("#circle");
+
+    // Adding stroke color
 
     circleSVG.css({
       stroke: "#000000"
-    }); // Adding class to enable transition
+    });
+
+    // Adding class to enable transition
 
     circleSVG.attr("class", "with-transition");
-    animateSVG("#circle", 100); // Run animate points
+    animateSVG("#circle", 100);
+
+    // Run animate points
 
     setTimeout(function() {
       animatePoints();
     }, 200);
-  } // Animate blue circle
+  }
+
+  // Animate blue circle
 
   function animateBlueCircle() {
     var tweenMax = new TimelineMax();
@@ -160,7 +178,9 @@ $(document).ready(function() {
       ease: Linear.easeNone,
       delay: 0
     });
-  } // Animate iphone
+  }
+
+  // Animate iphone
 
   function animateIphone() {
     var tweenMax = new TimelineMax();
@@ -170,7 +190,9 @@ $(document).ready(function() {
       ease: Linear.easeNone,
       delay: 0
     });
-  } // Animate button Executive & Manager Insights
+  }
+
+  // Animate button Executive & Manager Insights
 
   function animateButtonExecutiveManager() {
     var tweenMax = new TimelineMax();
@@ -188,7 +210,9 @@ $(document).ready(function() {
         },
         "-=0.6"
       );
-  } // Animate button Data Explorers
+  }
+
+  // Animate button Data Explorers
 
   function animateButtonDataExplorers() {
     var tweenMax = new TimelineMax();
@@ -206,7 +230,9 @@ $(document).ready(function() {
         },
         "-=0.6"
       );
-  } // Animate button Reporting & Analytics
+  }
+
+  // Animate button Reporting & Analytics
 
   function animateButtonReportingAnalytics() {
     var tweenMax = new TimelineMax();
@@ -224,7 +250,9 @@ $(document).ready(function() {
         },
         "-=0.6"
       );
-  } // Animate button Benchmarking
+  }
+
+  // Animate button Benchmarking
 
   function animateButtonBenchmarking() {
     var tweenMax = new TimelineMax();
@@ -242,17 +270,17 @@ $(document).ready(function() {
         },
         "-=0.6"
       );
-  } // Collapse and add/remove active class to button
+  }
+
+  // Collapse and add/remove active class to button
 
   function collapseAndActive(button, block) {
-    var _this = this;
-
     block.slideToggle(300, function() {
       if (block.css("display") === "block") {
-        $(_this).addClass("active");
+        $(this).addClass("active");
         button.addClass("active");
       } else {
-        $(_this).removeClass("active");
+        $(this).removeClass("active");
         button.removeClass("active");
       }
     });
@@ -270,45 +298,63 @@ $(document).ready(function() {
         }
       }
     });
-  } // Activate mobile buttons click listeners
+  }
+
+  // Activate mobile buttons click listeners
 
   function ActivateButtonsMobileListers() {
-    var _this2 = this;
-
     // Button mobile click listener - Executive & Manager Insights
     $(".button.mobile.executive-manager").click(function() {
-      var buttonElement = $(_this2);
+      var buttonElement = $(this);
       var blockElement = $(".description.mobile.executive-manager");
       hidePreviousCollapse(0);
       collapseAndActive(buttonElement, blockElement);
-    }); // Button mobile click listener - Data Explorers
+    });
+
+    // Button mobile click listener - Data Explorers
 
     $(".button.mobile.data-explorers").click(function() {
-      var buttonElement = $(_this2);
+      var buttonElement = $(this);
       var blockElement = $(".description.mobile.data-explorers");
       hidePreviousCollapse(1);
       collapseAndActive(buttonElement, blockElement);
-    }); // Button mobile click listener - Reporting & Analytics
+    });
+
+    // Button mobile click listener - Reporting & Analytics
 
     $(".button.mobile.reporting-analytics").click(function() {
-      var buttonElement = $(_this2);
+      var buttonElement = $(this);
       var blockElement = $(".description.mobile.reporting-analytics");
       hidePreviousCollapse(2);
       collapseAndActive(buttonElement, blockElement);
-    }); // Button mobile click listener - Benchmarking
+    });
+
+    // Button mobile click listener - Benchmarking
 
     $(".button.mobile.benchmarking").click(function() {
-      var buttonElement = $(_this2);
+      var buttonElement = $(this);
       var blockElement = $(".description.mobile.benchmarking");
       hidePreviousCollapse(3);
       collapseAndActive(buttonElement, blockElement);
     });
-  } // Add Textillate properties to informations
+  }
+
+  // Add Textillate properties to informations
 
   function addTextillateToInformation() {
     var titles = ["#executive_manager_title", "#data_explorers_title", "#reporting_analytics_title", "#benchmarking_title"];
-    var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
-    var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
+    var descriptions = [
+      "#executive_manager_description",
+      "#data_explorers_description",
+      "#reporting_analytics_description",
+      "#benchmarking_description"
+    ];
+    var containers = [
+      ".description.desktop.executive-manager",
+      ".description.desktop.data-explorers",
+      ".description.desktop.reporting-analytics",
+      ".description.desktop.benchmarking"
+    ];
     titles.forEach(function(title, count) {
       $(title).textillate({
         type: "char",
@@ -350,45 +396,91 @@ $(document).ready(function() {
         }
       });
     });
-  } // Remove inactive class from buttons
+  }
+
+  // Remove inactive class from buttons
 
   function removeInactiveState() {
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    var buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
     buttons.forEach(function(button) {
       if ($(button).hasClass("inactive")) {
         $(button).removeClass("inactive");
       }
-    }); // Run activate desktop buttons click listeners
+    });
+
+    // Run activate desktop buttons click listeners
 
     ActivateButtonsDesktopListeners();
-  } // Activate desktop buttons click listeners
+  }
+
+  // Activate desktop buttons click listeners
 
   function DeactivateButtonsDesktopListeners() {
     // Button desktop click listener - Executive & Manager Insights
-    $(".button.desktop.executive-manager").unbind("click"); // Button desktop click listener - Data Explorers
+    $(".button.desktop.executive-manager").unbind("click");
 
-    $(".button.desktop.data-explorers").unbind("click"); // Button desktop click listener - Reporting & Analytics
+    // Button desktop click listener - Data Explorers
 
-    $(".button.desktop.reporting-analytics").unbind("click"); // Button desktop click listener - Benchmarking
+    $(".button.desktop.data-explorers").unbind("click");
+
+    // Button desktop click listener - Reporting & Analytics
+
+    $(".button.desktop.reporting-analytics").unbind("click");
+
+    // Button desktop click listener - Benchmarking
 
     $(".button.desktop.benchmarking").unbind("click");
-  } // Remove listeners from buttons
+  }
+
+  // Remove listeners from buttons
 
   function removeListenersToButtons() {
     // Run deactivate desktop buttons click listeners
     DeactivateButtonsDesktopListeners();
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    var buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
     buttons.forEach(function(button) {
       $(button).addClass("inactive");
     });
-  } // Close non active informations
+  }
+
+  // Close non active informations
 
   function closeNonActiveDescriptions(index) {
     var tweenMax = new TimelineMax();
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
-    var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
-    var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
-    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+    var buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
+    var containers = [
+      ".description.desktop.executive-manager",
+      ".description.desktop.data-explorers",
+      ".description.desktop.reporting-analytics",
+      ".description.desktop.benchmarking"
+    ];
+    var descriptions = [
+      "#executive_manager_description",
+      "#data_explorers_description",
+      "#reporting_analytics_description",
+      "#benchmarking_description"
+    ];
+    var circleTitles = [
+      ".circle-title.executive-manager",
+      ".circle-title.data-explorers",
+      ".circle-title.reporting-analytics",
+      ".circle-title.benchmarking"
+    ];
     descriptions.forEach(function(description, count) {
       if (count != index) {
         if ($(containers[count]).hasClass("active")) {
@@ -411,16 +503,38 @@ $(document).ready(function() {
         }
       }
     });
-  } // Close non active informations on click
+  }
+
+  // Close non active informations on click
 
   async function closeNonActiveClickDescriptions(index) {
     var tweenMax = new TimelineMax();
-    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+    var circleTitles = [
+      ".circle-title.executive-manager",
+      ".circle-title.data-explorers",
+      ".circle-title.reporting-analytics",
+      ".circle-title.benchmarking"
+    ];
     removeListenersToButtons();
     return new Promise(function(resolve) {
-      var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
-      var containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
-      var descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
+      var buttons = [
+        ".button.desktop.executive-manager",
+        ".button.desktop.data-explorers",
+        ".button.desktop.reporting-analytics",
+        ".button.desktop.benchmarking"
+      ];
+      var containers = [
+        ".description.desktop.executive-manager",
+        ".description.desktop.data-explorers",
+        ".description.desktop.reporting-analytics",
+        ".description.desktop.benchmarking"
+      ];
+      var descriptions = [
+        "#executive_manager_description",
+        "#data_explorers_description",
+        "#reporting_analytics_description",
+        "#benchmarking_description"
+      ];
       descriptions.forEach(function(description, count) {
         if (count != index) {
           if ($(containers[count]).hasClass("active")) {
@@ -450,12 +564,24 @@ $(document).ready(function() {
         resolve("Done!");
       }, 2500);
     });
-  } // Show descriptions with animation
+  }
+
+  // Show descriptions with animation
 
   async function animateShowDescriptions(index, button, container, title) {
     var tweenMax = new TimelineMax();
-    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    var circleTitles = [
+      ".circle-title.executive-manager",
+      ".circle-title.data-explorers",
+      ".circle-title.reporting-analytics",
+      ".circle-title.benchmarking"
+    ];
+    var buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
     return new Promise(function(resolve) {
       closeNonActiveDescriptions(index);
       setTimeout(function() {
@@ -528,12 +654,24 @@ $(document).ready(function() {
         }, 4000);
       }, 3500);
     });
-  } // Show descriptions with animation with click
+  }
+
+  // Show descriptions with animation with click
 
   function animateShowDescriptionsClick(index, button, container, title) {
     var tweenMax = new TimelineMax();
-    var circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    var circleTitles = [
+      ".circle-title.executive-manager",
+      ".circle-title.data-explorers",
+      ".circle-title.reporting-analytics",
+      ".circle-title.benchmarking"
+    ];
+    var buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
     $("".concat(buttons[index], ">.explosion")).removeAttr("style");
     $("".concat(buttons[index], ">.explosion>.points-around")).removeAttr("style");
     $("".concat(buttons[index], ">.explosion>.points-around>.points-container")).removeAttr("style");
@@ -625,7 +763,10 @@ $(document).ready(function() {
               },
               "-=0.1"
             );
-        }); // }, 2000);
+        });
+
+        // }, 2000);
+
         // console.log(response);
 
         return;
@@ -633,36 +774,56 @@ $(document).ready(function() {
     }
 
     informationFirstTime = false;
-  } // Activate desktop buttons click listeners
+  }
+
+  // Activate desktop buttons click listeners
 
   function ActivateButtonsDesktopListeners() {
     var _this3 = this;
 
-    var buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    var buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
     buttons.forEach(function(button) {
       $(button).removeClass("inactive");
-    }); // Button desktop click listener - Executive & Manager Insights
+    });
+
+    // Button desktop click listener - Executive & Manager Insights
 
     $(".button.desktop.executive-manager").click(function() {
       if (!$(_this3).hasClass("active")) {
         // Animate description Executive Manager
         animateShowDescriptionsClick(0, ".button.desktop.executive-manager", ".description.desktop.executive-manager", "#executive_manager_title");
       }
-    }); // Button desktop click listener - Data Explorers
+    });
+
+    // Button desktop click listener - Data Explorers
 
     $(".button.desktop.data-explorers").click(function() {
       if (!$(_this3).hasClass("active")) {
         // Animate description Data Explorers
         animateShowDescriptionsClick(1, ".button.desktop.data-explorers", ".description.desktop.data-explorers", "#data_explorers_title");
       }
-    }); // Button desktop click listener - Reporting & Analytics
+    });
+
+    // Button desktop click listener - Reporting & Analytics
 
     $(".button.desktop.reporting-analytics").click(function() {
       if (!$(_this3).hasClass("active")) {
         // Animate description Reporting & Analytics
-        animateShowDescriptionsClick(2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title");
+        animateShowDescriptionsClick(
+          2,
+          ".button.desktop.reporting-analytics",
+          ".description.desktop.reporting-analytics",
+          "#reporting_analytics_title"
+        );
       }
-    }); // Button desktop click listener - Benchmarking
+    });
+
+    // Button desktop click listener - Benchmarking
 
     $(".button.desktop.benchmarking").click(function() {
       if (!$(_this3).hasClass("active")) {
@@ -670,27 +831,42 @@ $(document).ready(function() {
         animateShowDescriptionsClick(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title");
       }
     });
-  } // Animate descriptions desktop
+  }
+
+  // Animate descriptions desktop
 
   function animateDescriptions() {
     // Animate description Executive Manager
-    animateShowDescriptions(0, ".button.desktop.executive-manager", ".description.desktop.executive-manager", "#executive_manager_title").then(function(response) {
-      // Animate description Data Explorers
-      animateShowDescriptions(1, ".button.desktop.data-explorers", ".description.desktop.data-explorers", "#data_explorers_title").then(function(response) {
-        // Animate description Reporting & Analytics
-        animateShowDescriptions(2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title").then(function(response) {
-          // Animate description Benchmarking
-          animateShowDescriptions(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title").then(function(response) {
-            // return "Done";
-            closeNonActiveDescriptions(1);
-            setTimeout(function() {
-              removeInactiveState();
-            }, 2000);
+    animateShowDescriptions(0, ".button.desktop.executive-manager", ".description.desktop.executive-manager", "#executive_manager_title").then(
+      function(response) {
+        // Animate description Data Explorers
+        animateShowDescriptions(1, ".button.desktop.data-explorers", ".description.desktop.data-explorers", "#data_explorers_title").then(function(
+          response
+        ) {
+          // Animate description Reporting & Analytics
+          animateShowDescriptions(
+            2,
+            ".button.desktop.reporting-analytics",
+            ".description.desktop.reporting-analytics",
+            "#reporting_analytics_title"
+          ).then(function(response) {
+            // Animate description Benchmarking
+            animateShowDescriptions(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title").then(function(
+              response
+            ) {
+              // return "Done";
+              closeNonActiveDescriptions(1);
+              setTimeout(function() {
+                removeInactiveState();
+              }, 2000);
+            });
           });
         });
-      });
-    });
-  } // Animate buttons titles
+      }
+    );
+  }
+
+  // Animate buttons titles
 
   function animateButtonsTitles() {
     var tweenMax = new TimelineMax();
@@ -747,52 +923,82 @@ $(document).ready(function() {
         },
         "-=0.5"
       );
-  } // Run ALL animations
+  }
+
+  // Run ALL animations
 
   function playAnimations() {
     // Run init cicle
-    initCircle(); // Run activate mobile buttons click listeners
+    initCircle();
 
-    ActivateButtonsMobileListers(); // Run init textillate
+    // Run activate mobile buttons click listeners
 
-    addTextillateToInformation(); // Run move buildings background
+    ActivateButtonsMobileListers();
 
-    moveBuildingsBackground(); // Run animate blue circle
+    // Run init textillate
 
-    animateBlueCircle(); // Run animate title
+    addTextillateToInformation();
+
+    // Run move buildings background
+
+    moveBuildingsBackground();
+
+    // Run animate blue circle
+
+    animateBlueCircle();
+
+    // Run animate title
 
     animateTitle();
-    var timer = 500; // Run animate iphone
+    var timer = 500;
+
+    // Run animate iphone
 
     setTimeout(function() {
       animateIphone();
-    }, timer); // Reset timer
+    }, timer);
 
-    timer = 250; // Run animate button Executive & Manager Insights
+    // Reset timer
+
+    timer = 250;
+
+    // Run animate button Executive & Manager Insights
 
     setTimeout(function() {
       animateButtonExecutiveManager();
-    }, timer * 2); // Run animate button Data Explorers
+    }, timer * 2);
+
+    // Run animate button Data Explorers
 
     setTimeout(function() {
       animateButtonDataExplorers();
-    }, timer * 3); // Run animate button Reporting & Analytics
+    }, timer * 3);
+
+    // Run animate button Reporting & Analytics
 
     setTimeout(function() {
       animateButtonReportingAnalytics();
-    }, timer * 4); // Run animate button Benchmarking
+    }, timer * 4);
+
+    // Run animate button Benchmarking
 
     setTimeout(function() {
       animateButtonBenchmarking();
-    }, timer * 5); // Run animate titles
+    }, timer * 5);
+
+    // Run animate titles
 
     setTimeout(function() {
       animateButtonsTitles();
-    }, timer * 6); // Run animate circle
+    }, timer * 6);
+
+    // Run animate circle
 
     setTimeout(function() {
       animateCircle();
-    }, timer * 13); // Run animate descriptions
+    }, timer * 13);
+
+    // Run animate descriptions
 
     setTimeout(function() {
       animateDescriptions();

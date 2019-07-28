@@ -258,7 +258,7 @@ $(document).ready(() => {
 
   // Collapse and add/remove active class to button
   function collapseAndActive(button, block) {
-    block.slideToggle(300, () => {
+    block.slideToggle(300, function() {
       if (block.css("display") === "block") {
         $(this).addClass("active");
         button.addClass("active");
@@ -287,16 +287,16 @@ $(document).ready(() => {
   // Activate mobile buttons click listeners
   function ActivateButtonsMobileListers() {
     // Button mobile click listener - Executive & Manager Insights
-    $(".button.mobile.executive-manager").click(() => {
+    $(".button.mobile.executive-manager").click(function() {
       let buttonElement = $(this);
       let blockElement = $(".description.mobile.executive-manager");
-
+      
       hidePreviousCollapse(0);
       collapseAndActive(buttonElement, blockElement);
     });
 
     // Button mobile click listener - Data Explorers
-    $(".button.mobile.data-explorers").click(() => {
+    $(".button.mobile.data-explorers").click(function() {
       let buttonElement = $(this);
       let blockElement = $(".description.mobile.data-explorers");
 
@@ -305,7 +305,7 @@ $(document).ready(() => {
     });
 
     // Button mobile click listener - Reporting & Analytics
-    $(".button.mobile.reporting-analytics").click(() => {
+    $(".button.mobile.reporting-analytics").click(function() {
       let buttonElement = $(this);
       let blockElement = $(".description.mobile.reporting-analytics");
 
@@ -314,7 +314,7 @@ $(document).ready(() => {
     });
 
     // Button mobile click listener - Benchmarking
-    $(".button.mobile.benchmarking").click(() => {
+    $(".button.mobile.benchmarking").click(function() {
       let buttonElement = $(this);
       let blockElement = $(".description.mobile.benchmarking");
 
@@ -326,8 +326,18 @@ $(document).ready(() => {
   // Add Textillate properties to informations
   function addTextillateToInformation() {
     let titles = ["#executive_manager_title", "#data_explorers_title", "#reporting_analytics_title", "#benchmarking_title"];
-    let descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
-    let containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
+    let descriptions = [
+      "#executive_manager_description",
+      "#data_explorers_description",
+      "#reporting_analytics_description",
+      "#benchmarking_description"
+    ];
+    let containers = [
+      ".description.desktop.executive-manager",
+      ".description.desktop.data-explorers",
+      ".description.desktop.reporting-analytics",
+      ".description.desktop.benchmarking"
+    ];
 
     titles.forEach((title, count) => {
       $(title).textillate({
@@ -375,7 +385,12 @@ $(document).ready(() => {
 
   // Remove inactive class from buttons
   function removeInactiveState() {
-    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
 
     buttons.forEach(button => {
       if ($(button).hasClass("inactive")) {
@@ -407,7 +422,12 @@ $(document).ready(() => {
     // Run deactivate desktop buttons click listeners
     DeactivateButtonsDesktopListeners();
 
-    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
 
     buttons.forEach(button => {
       $(button).addClass("inactive");
@@ -417,10 +437,30 @@ $(document).ready(() => {
   // Close non active informations
   function closeNonActiveDescriptions(index) {
     let tweenMax = new TimelineMax();
-    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
-    let containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
-    let descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
-    let circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+    let buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
+    let containers = [
+      ".description.desktop.executive-manager",
+      ".description.desktop.data-explorers",
+      ".description.desktop.reporting-analytics",
+      ".description.desktop.benchmarking"
+    ];
+    let descriptions = [
+      "#executive_manager_description",
+      "#data_explorers_description",
+      "#reporting_analytics_description",
+      "#benchmarking_description"
+    ];
+    let circleTitles = [
+      ".circle-title.executive-manager",
+      ".circle-title.data-explorers",
+      ".circle-title.reporting-analytics",
+      ".circle-title.benchmarking"
+    ];
 
     descriptions.forEach((description, count) => {
       if (count != index) {
@@ -428,7 +468,9 @@ $(document).ready(() => {
           $(description).textillate("out");
 
           setTimeout(() => {
-            tweenMax.to(circleTitles[count], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[count], 0.2, { scale: 1, ease: Linear.easeNone });
+            tweenMax
+              .to(circleTitles[count], 0.5, { scale: 1.1, ease: Linear.easeNone })
+              .to(circleTitles[count], 0.2, { scale: 1, ease: Linear.easeNone });
           }, 1500);
 
           setTimeout(() => {
@@ -443,14 +485,34 @@ $(document).ready(() => {
   // Close non active informations on click
   async function closeNonActiveClickDescriptions(index) {
     let tweenMax = new TimelineMax();
-    let circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
+    let circleTitles = [
+      ".circle-title.executive-manager",
+      ".circle-title.data-explorers",
+      ".circle-title.reporting-analytics",
+      ".circle-title.benchmarking"
+    ];
 
     removeListenersToButtons();
 
     return new Promise(function(resolve) {
-      let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
-      let containers = [".description.desktop.executive-manager", ".description.desktop.data-explorers", ".description.desktop.reporting-analytics", ".description.desktop.benchmarking"];
-      let descriptions = ["#executive_manager_description", "#data_explorers_description", "#reporting_analytics_description", "#benchmarking_description"];
+      let buttons = [
+        ".button.desktop.executive-manager",
+        ".button.desktop.data-explorers",
+        ".button.desktop.reporting-analytics",
+        ".button.desktop.benchmarking"
+      ];
+      let containers = [
+        ".description.desktop.executive-manager",
+        ".description.desktop.data-explorers",
+        ".description.desktop.reporting-analytics",
+        ".description.desktop.benchmarking"
+      ];
+      let descriptions = [
+        "#executive_manager_description",
+        "#data_explorers_description",
+        "#reporting_analytics_description",
+        "#benchmarking_description"
+      ];
 
       descriptions.forEach((description, count) => {
         if (count != index) {
@@ -458,7 +520,9 @@ $(document).ready(() => {
             $(description).textillate("out");
 
             setTimeout(() => {
-              tweenMax.to(circleTitles[count], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[count], 0.2, { scale: 1, ease: Linear.easeNone });
+              tweenMax
+                .to(circleTitles[count], 0.5, { scale: 1.1, ease: Linear.easeNone })
+                .to(circleTitles[count], 0.2, { scale: 1, ease: Linear.easeNone });
             }, 1500);
 
             setTimeout(() => {
@@ -481,20 +545,34 @@ $(document).ready(() => {
   // Show descriptions with animation
   async function animateShowDescriptions(index, button, container, title) {
     let tweenMax = new TimelineMax();
-    let circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
-    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let circleTitles = [
+      ".circle-title.executive-manager",
+      ".circle-title.data-explorers",
+      ".circle-title.reporting-analytics",
+      ".circle-title.benchmarking"
+    ];
+    let buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
 
     return new Promise(function(resolve) {
       closeNonActiveDescriptions(index);
 
       setTimeout(() => {
-        tweenMax.to(`${buttons[index]}>.explosion`, 0.45, { left: "-20pt", right: "-20pt", top: "-20pt", bottom: "-20pt", ease: Linear.easeNone }).to(`${buttons[index]}>.explosion`, 0.08, { borderWidth: 0, ease: Linear.easeNone }, "-=0.1");
+        tweenMax
+          .to(`${buttons[index]}>.explosion`, 0.45, { left: "-20pt", right: "-20pt", top: "-20pt", bottom: "-20pt", ease: Linear.easeNone })
+          .to(`${buttons[index]}>.explosion`, 0.08, { borderWidth: 0, ease: Linear.easeNone }, "-=0.1");
         tweenMax.to(`${buttons[index]}>.explosion>.points-around`, 0.3, { scale: 2, opacity: 1, ease: Linear.easeNone }, "-=0.3");
         tweenMax.to(`${buttons[index]}>.explosion>.points-around>.points-container`, 0.4, { opacity: 0, ease: Linear.easeNone }, "-=0.3");
         tweenMax.to(`${buttons[index]}>.explosion>.points-around>.points-container>.point`, 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.4");
 
         $(container).fadeIn(10, () => {
-          tweenMax.to(circleTitles[index], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[index], 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.1");
+          tweenMax
+            .to(circleTitles[index], 0.5, { scale: 1.1, ease: Linear.easeNone })
+            .to(circleTitles[index], 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.1");
 
           $(title).textillate("in");
           $(button).addClass("active");
@@ -511,15 +589,27 @@ $(document).ready(() => {
   // Show descriptions with animation with click
   function animateShowDescriptionsClick(index, button, container, title) {
     let tweenMax = new TimelineMax();
-    let circleTitles = [".circle-title.executive-manager", ".circle-title.data-explorers", ".circle-title.reporting-analytics", ".circle-title.benchmarking"];
-    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let circleTitles = [
+      ".circle-title.executive-manager",
+      ".circle-title.data-explorers",
+      ".circle-title.reporting-analytics",
+      ".circle-title.benchmarking"
+    ];
+    let buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
 
     $(`${buttons[index]}>.explosion`).removeAttr("style");
     $(`${buttons[index]}>.explosion>.points-around`).removeAttr("style");
     $(`${buttons[index]}>.explosion>.points-around>.points-container`).removeAttr("style");
     $(`${buttons[index]}>.explosion>.points-around>.points-container>.point`).removeAttr("style");
 
-    tweenMax.to(`${buttons[index]}>.explosion`, 0.45, { left: "-20pt", right: "-20pt", top: "-20pt", bottom: "-20pt", ease: Linear.easeNone }).to(`${buttons[index]}>.explosion`, 0.08, { borderWidth: 0, ease: Linear.easeNone }, "-=0.1");
+    tweenMax
+      .to(`${buttons[index]}>.explosion`, 0.45, { left: "-20pt", right: "-20pt", top: "-20pt", bottom: "-20pt", ease: Linear.easeNone })
+      .to(`${buttons[index]}>.explosion`, 0.08, { borderWidth: 0, ease: Linear.easeNone }, "-=0.1");
     tweenMax.to(`${buttons[index]}>.explosion>.points-around`, 0.3, { scale: 2, opacity: 1, ease: Linear.easeNone }, "-=0.3");
     tweenMax.to(`${buttons[index]}>.explosion>.points-around>.points-container`, 0.4, { opacity: 0, ease: Linear.easeNone }, "-=0.3");
     tweenMax.to(`${buttons[index]}>.explosion>.points-around>.points-container>.point`, 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.4");
@@ -530,7 +620,9 @@ $(document).ready(() => {
         $(button).addClass("active");
         $(container).addClass("active");
 
-        tweenMax.to(circleTitles[index], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[index], 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.1");
+        tweenMax
+          .to(circleTitles[index], 0.5, { scale: 1.1, ease: Linear.easeNone })
+          .to(circleTitles[index], 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.1");
       });
     } else {
       closeNonActiveClickDescriptions(index).then(function(response) {
@@ -540,7 +632,9 @@ $(document).ready(() => {
           $(button).addClass("active");
           $(container).addClass("active");
 
-          tweenMax.to(circleTitles[index], 0.5, { scale: 1.1, ease: Linear.easeNone }).to(circleTitles[index], 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.1");
+          tweenMax
+            .to(circleTitles[index], 0.5, { scale: 1.1, ease: Linear.easeNone })
+            .to(circleTitles[index], 0.4, { scale: 0, ease: Linear.easeNone }, "-=0.1");
         });
         // }, 2000);
         // console.log(response);
@@ -553,7 +647,12 @@ $(document).ready(() => {
 
   // Activate desktop buttons click listeners
   function ActivateButtonsDesktopListeners() {
-    let buttons = [".button.desktop.executive-manager", ".button.desktop.data-explorers", ".button.desktop.reporting-analytics", ".button.desktop.benchmarking"];
+    let buttons = [
+      ".button.desktop.executive-manager",
+      ".button.desktop.data-explorers",
+      ".button.desktop.reporting-analytics",
+      ".button.desktop.benchmarking"
+    ];
 
     buttons.forEach(button => {
       $(button).removeClass("inactive");
@@ -579,7 +678,12 @@ $(document).ready(() => {
     $(".button.desktop.reporting-analytics").click(() => {
       if (!$(this).hasClass("active")) {
         // Animate description Reporting & Analytics
-        animateShowDescriptionsClick(2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title");
+        animateShowDescriptionsClick(
+          2,
+          ".button.desktop.reporting-analytics",
+          ".description.desktop.reporting-analytics",
+          "#reporting_analytics_title"
+        );
       }
     });
 
@@ -595,23 +699,34 @@ $(document).ready(() => {
   // Animate descriptions desktop
   function animateDescriptions() {
     // Animate description Executive Manager
-    animateShowDescriptions(0, ".button.desktop.executive-manager", ".description.desktop.executive-manager", "#executive_manager_title").then(function(response) {
-      // Animate description Data Explorers
-      animateShowDescriptions(1, ".button.desktop.data-explorers", ".description.desktop.data-explorers", "#data_explorers_title").then(function(response) {
-        // Animate description Reporting & Analytics
-        animateShowDescriptions(2, ".button.desktop.reporting-analytics", ".description.desktop.reporting-analytics", "#reporting_analytics_title").then(function(response) {
-          // Animate description Benchmarking
-          animateShowDescriptions(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title").then(function(response) {
-            // return "Done";
-            closeNonActiveDescriptions(1);
+    animateShowDescriptions(0, ".button.desktop.executive-manager", ".description.desktop.executive-manager", "#executive_manager_title").then(
+      function(response) {
+        // Animate description Data Explorers
+        animateShowDescriptions(1, ".button.desktop.data-explorers", ".description.desktop.data-explorers", "#data_explorers_title").then(function(
+          response
+        ) {
+          // Animate description Reporting & Analytics
+          animateShowDescriptions(
+            2,
+            ".button.desktop.reporting-analytics",
+            ".description.desktop.reporting-analytics",
+            "#reporting_analytics_title"
+          ).then(function(response) {
+            // Animate description Benchmarking
+            animateShowDescriptions(3, ".button.desktop.benchmarking", ".description.desktop.benchmarking", "#benchmarking_title").then(function(
+              response
+            ) {
+              // return "Done";
+              closeNonActiveDescriptions(1);
 
-            setTimeout(() => {
-              removeInactiveState();
-            }, 2000);
+              setTimeout(() => {
+                removeInactiveState();
+              }, 2000);
+            });
           });
         });
-      });
-    });
+      }
+    );
   }
 
   // Animate buttons titles
